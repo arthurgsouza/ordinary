@@ -147,7 +147,7 @@ public class CardManager : MonoBehaviour
 
     public void OnSwipeLeft()
     {
-        if (isGameOver && lives == 0 | (isGameOver && isAWin))
+        if ((isGameOver && lives == 0) || (isGameOver && isAWin))
         {
             // Quit the game
             #if UNITY_EDITOR
@@ -178,7 +178,7 @@ public class CardManager : MonoBehaviour
 
     public void OnSwipeRight()
     {
-         if (isGameOver && lives == 0 | (isGameOver && isAWin))
+         if ((isGameOver && lives == 0) || (isGameOver && isAWin))
         {
             // Quit the game
             #if UNITY_EDITOR
@@ -233,8 +233,9 @@ public class CardManager : MonoBehaviour
         return null; // Return null if no valid card is available
     }
 
-    private void ApplyEffects(int[] effects)
+    private void ApplyEffects(int[] cardEffects)
     {
+        int[] effects = (int[])cardEffects.Clone(); // Work on a copy so the source CardData asset is never mutated
         if (currentIndex - (meta_cards.Count-1) == prosperityIndex)
         {
             if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
@@ -318,7 +319,7 @@ public class CardManager : MonoBehaviour
 
         int invert = Random.Range(1, 100);
         Debug.Log("Random invert value: " + invert);
-        if (invert >= 85 & currentProgress > 0) // Randomly invert progress
+        if (invert >= 85 && currentProgress > 0) // Randomly invert progress
         {
             int tempCurrentProgress = currentProgress * -1;
             progressMonitorCount.text = tempCurrentProgress.ToString();
@@ -364,7 +365,7 @@ public class CardManager : MonoBehaviour
             }
         }
 
-        if (metricsAboveThreshold >= 3 | currentIndex == lifespan)
+        if (metricsAboveThreshold >= 3 || currentIndex == lifespan)
         {
             //EndGame(true); // Player wins
             return (true, true); // Game over, player wins
