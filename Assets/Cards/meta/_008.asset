@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: _008
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: ___
+  promptText: 'Let''s start with People. This isn''t just a number. It''s the well-being
+    of communities, their health, rights, and cultural dignity. It asks: are we caring
+    for each other?'
+  leftAnswer: A community's health is paramount.
+  rightAnswer: Without people, there is no purpose.
+  portrait: {fileID: -7281035786882296523, guid: 8e65ca5af7a60d6119f4123ffce73c9d, type: 3}
+  leftEffects: 00000000220000000000000000000000
+  rightEffects: 00000000270000000000000000000000

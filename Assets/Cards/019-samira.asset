@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 019-samira
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Samira Yassin
+  promptText: The Occupation Forces sealed the community well to enable a luxury
+    development. Public protest may lead to detention and disruption, while silence
+    leaves children drinking scarce or polluted water.
+  leftAnswer: Public action can reclaim collective water rights despite risk.
+  rightAnswer: Keeping children safe today preserves family stability and care.
+  portrait: {fileID: 8771591641707706469, guid: 8ee934badc110c73397f99fc7bdb4daa, type: 3}
+  leftEffects: 0f0000000a00000014000000ecffffff
+  rightEffects: 0a000000f6ffffffecffffff0f000000

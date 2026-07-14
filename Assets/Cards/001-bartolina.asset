@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 001-bartolina
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Bartolina Quispe
+  promptText: A consortium links infrastructure pledges to lithium extraction near
+    sacred springs. Proponents promise schools and jobs; independent notes warn of
+    aquifer drawdown and chemical risk. The trade-off is immediate investment versus
+    long-term water security.
+  leftAnswer: Investment can deliver schools and jobs your community needs now.
+  rightAnswer: Losing the springs would erase the foundation no funding can replace.
+  portrait: {fileID: 966909835746358733, guid: f70fdbee6465dfa5e905e500b3b0da92, type: 3}
+  leftEffects: 0a000000e2ffffffe7ffffff23000000
+  rightEffects: ecffffff0a0000000f000000ecffffff

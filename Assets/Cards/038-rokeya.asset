@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 038-rokeya
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Rokeya Chowdhury
+  promptText: "My brand is markets as \u201Csustainable\u201D but relies on low-paid
+    factory labour. Raising wages would improve dignity but may force closures and
+    job losses; keeping wages preserves incomes now but perpetuates unfair work."
+  leftAnswer: "Maintaining pay protects families\u2019 incomes while you seek fair
+    transition paths."
+  rightAnswer: Raising wages affirms dignity and justice, even if some jobs may be
+    lost.
+  portrait: {fileID: -8359629606829966184, guid: 978d956a04c6562dfa771993f3b70eac, type: 3}
+  leftEffects: 0a000000fbffffffecffffff1e000000
+  rightEffects: 05000000d8ffffffddffffff37000000

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 030-kwame
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Kwame Boateng
+  promptText: An international lender conditions major climate relief on steep healthcare
+    cuts. Accepting unlocks funds for cleaner infrastructure but endangers essential
+    clinics; rejecting keeps care for vulnerable people but limits resources for
+    green transition.
+  leftAnswer: Accepting funds can accelerate climate action that benefits many over
+    time.
+  rightAnswer: Protecting clinics today preserves lives that cannot be traded for
+    loans.
+  portrait: {fileID: -3013439986038821112, guid: 771390337a9746eeaacd4bc767cdbf94, type: 3}
+  leftEffects: 28000000d3ffffff19000000e7ffffff
+  rightEffects: 19000000c4ffffff14000000c9ffffff

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 003-indira
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Indira Rathod
+  promptText: A utility-scale solar firm seeks communal desert land, offering rooftop
+    panels and a clinic in return. The project brings energy and services but shifts
+    land tenure and communal autonomy. Accepting trades open commons for institutional
+    promises.
+  leftAnswer: Energy and a clinic address urgent needs for many households.
+  rightAnswer: Ceding the commons risks long-term autonomy and shared life.
+  portrait: {fileID: -1193029611501732664, guid: 73001eed66e2149a2b5fc53edb59905d, type: 3}
+  leftEffects: 0f000000e2ffffffceffffff14000000
+  rightEffects: ceffffffd3ffffff14000000c9ffffff

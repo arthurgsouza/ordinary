@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: _001b
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Alice Krenak
+  promptText: 'Your purpose is to guide people through impossible choices. Every
+    decision you make will affect our world, measured by three vital signs at the
+    top of your screen: People, Planet, and Restoration.
+
+
+    Can you see them?'
+  leftAnswer: I see them. They're pulsing.
+  rightAnswer: What do they mean?
+  portrait: {fileID: 8976944349794189140, guid: 44c5c765ec4386fb78a7ee1ad7799a7d, type: 3}
+  leftEffects: 2c000000000000000000000000000000
+  rightEffects: 27000000000000000000000000000000

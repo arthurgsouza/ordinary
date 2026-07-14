@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 002-tenzin
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Tenzin Sherpa
+  promptText: Loggers operating under false ranger permits are cutting sacred pines.
+    Recording could provide evidence for accountability, yet surveillance and reprisals
+    already threaten families. The choice balances public exposure with personal
+    safety.
+  leftAnswer: A clear record may force accountability and halt illegal cutting.
+  rightAnswer: Keeping quiet can shield your family from immediate retaliation.
+  portrait: {fileID: 8902927609405087841, guid: 1106f6b50e93a15979a2ff8e846bdec6, type: 3}
+  leftEffects: d3ffffff1900000014000000ceffffff
+  rightEffects: 0a000000e7ffffffecfffffff6ffffff

@@ -1,0 +1,282 @@
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+using System.Collections;
+using UnityEngine.UI; 
+using TMPro;
+public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+{
+
+    [Header("Drag Hint")]
+    public TMP_Text dragHintText;     // assign in Inspector
+    [SerializeField] private RectTransform dragHintContainer;
+
+
+    [Header("Swipe Settings")]
+    public float swipeThreshold = 150f;   // how far you must drag
+    public float offscreenOffsetX = 1000f;  // horizontal distance off‑screen
+    public float offscreenOffsetY = -200f;  // vertical drift when swiping away
+    public float swipeAnimDuration = 0.3f;   // how long the swipe animation takes
+    public float maxRotationDegrees = 15f;    // how much to tilt at full drag
+
+    [Header("Card Assets")]
+    [Tooltip("Portrait Settings")]
+    public Image portraitImage; // Assign the Portrait's Image component here
+    
+    [Tooltip("Reference to the TextMeshProUGUI component for the dialogue text")]
+    public TMP_Text dialogueText; // Assign the Dialogue TextMeshProUGUI here
+    [Tooltip("Reference to the TextMeshProUGUI component for the name tag")]
+    public TMP_Text nameTagText; // Assign the NameTag TextMeshProUGUI here
+
+   
+    [Header("Card Manager")]
+    [SerializeField] private CardManager cardManager;
+
+    [Header("Typewriter Effect")]
+    public TypewriterEffect typewriterEffect; // Assign in Inspector
+
+
+    private RectTransform rt;
+    private Vector2 startPos;
+    private float startRotZ;
+    // private int currentSpriteIndex = 0; // Track the current sprite index
+
+    void Awake()
+    {
+        rt = GetComponent<RectTransform>();
+    }
+
+    void Start()
+    {
+        // remember where we began (position + rotation)
+        startPos = rt.anchoredPosition;
+        startRotZ = rt.localEulerAngles.z;
+        dragHintText.gameObject.SetActive(false);
+        dragHintContainer.gameObject.SetActive(false);
+
+        // Initialize the UI with the first card's data
+        UpdateCardUI();
+    }
+
+    // show as soon as the user starts dragging
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        dragHintText.gameObject.SetActive(true);
+        dragHintContainer.gameObject.SetActive(true);
+        dragHintText.text = ""; // Clear the text initially
+    }
+
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Move in X only
+        rt.anchoredPosition += new Vector2(eventData.delta.x, 0);
+
+        // Tilt proportional to drag distance
+        float deltaX = rt.anchoredPosition.x - startPos.x;
+        float rotZ = Mathf.Clamp(
+                            (deltaX / swipeThreshold) * -maxRotationDegrees,
+                            -maxRotationDegrees,
+                            maxRotationDegrees
+                        );
+        rt.localEulerAngles = new Vector3(0, 0, rotZ);
+
+        // Update the drag hint text based on drag direction
+        if (deltaX > 0) // Dragging to the right
+        {
+            dragHintText.text = cardManager.GetCurrentCard()?.rightAnswer ?? "No right answer";
+        }
+        else if (deltaX < 0) // Dragging to the left
+        {
+            dragHintText.text = cardManager.GetCurrentCard()?.leftAnswer ?? "No left answer";
+        }
+    }
+
+    /*
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            // Hide the hint
+            dragHintContainer.gameObject.SetActive(false);
+            dragHintText.gameObject.SetActive(false);
+
+            float deltaX = rt.anchoredPosition.x - startPos.x;
+            if (Mathf.Abs(deltaX) >= swipeThreshold)
+            {
+                // Decide direction
+                if (deltaX > 0)
+                {
+                    dragHintText.text = ""; // Clear the hint text
+                    StartCoroutine(SwipeAway(new Vector2(offscreenOffsetX, offscreenOffsetY), maxRotationDegrees, OnSwipedRight));
+                }
+                else
+                {
+                    dragHintText.text = ""; // Clear the hint text
+                    StartCoroutine(SwipeAway(new Vector2(-offscreenOffsetX, offscreenOffsetY), -maxRotationDegrees, OnSwipedLeft));
+                }
+            }
+            else
+            {
+                // Not a full swipe → snap back
+                ResetCard();
+            }
+        }
+        */
+    
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        dragHintContainer.gameObject.SetActive(false);
+        dragHintText.gameObject.SetActive(false);
+
+        float deltaX = rt.anchoredPosition.x - startPos.x;
+        if (Mathf.Abs(deltaX) >= swipeThreshold)
+        {
+            if (deltaX > 0)
+            {
+                StartCoroutine(SwipeAway(new Vector2(offscreenOffsetX, offscreenOffsetY), maxRotationDegrees, OnSwipedRight));
+            }
+            else
+            {
+                StartCoroutine(SwipeAway(new Vector2(-offscreenOffsetX, offscreenOffsetY), -maxRotationDegrees, OnSwipedLeft));
+            }
+        }
+        else
+        {
+            StartCoroutine(SmoothReset()); // Animate back
+        }
+    }
+
+    IEnumerator SwipeAway(Vector2 offset, float targetRotZ, System.Action onComplete)
+    {
+        Vector2 initialPos = rt.anchoredPosition;
+        float initialRot = rt.localEulerAngles.z;
+        Vector2 finalPos = startPos + offset;
+        float elapsed = 0f;
+
+        while (elapsed < swipeAnimDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / swipeAnimDuration;
+
+            // Lerp position
+            rt.anchoredPosition = Vector2.Lerp(initialPos, finalPos, t);
+            // Lerp rotation
+            float z = Mathf.LerpAngle(initialRot, targetRotZ, t);
+            rt.localEulerAngles = new Vector3(0, 0, z);
+
+            // Keep the dragHintContainer visually straight and aligned
+            // dragHintContainer.position = rt.position; // Match position
+            // dragHintContainer.rotation = Quaternion.identity; // Reset rotation to world space
+
+
+            yield return null;
+        }
+
+        // ensure exact final state
+        rt.anchoredPosition = finalPos;
+        rt.localEulerAngles = new Vector3(0, 0, targetRotZ);
+
+        onComplete?.Invoke();
+    }
+    void OnSwipedRight()
+    {
+        Debug.Log("✅ Swiped RIGHT");
+        if (cardManager != null)
+        {
+            cardManager.OnSwipeRight(); // Notify the CardManager about the right swipe
+            // cardManager.DisplayCard(cardManager.GetCurrentCard()); 
+        }
+        // Instead of just UpdateCardUI(), use the flip animation
+        UpdateCardUI(); // Refresh the UI
+        ResetCard();
+    }
+
+    void OnSwipedLeft()
+    {
+        Debug.Log("❌ Swiped LEFT");
+        if (cardManager != null)
+        {
+            cardManager.OnSwipeLeft(); // Notify the CardManager about the left swipe
+            //cardManager.DisplayCard(cardManager.GetCurrentCard()); 
+        }
+        // Instead of just UpdateCardUI(), use the flip animation
+        UpdateCardUI(); // Refresh the UI
+        ResetCard();
+    }
+    /*
+
+    void ResetCard()
+    {
+        // snap back to original position & rotation
+        rt.anchoredPosition = startPos;
+        rt.localEulerAngles = new Vector3(0, 0, startRotZ);
+    }
+    */
+
+    void ResetCard()
+    {
+        StartCoroutine(SmoothReset());
+    }
+
+
+IEnumerator SmoothReset()
+{
+    Vector2 fromPos = rt.anchoredPosition;
+    float fromRot = rt.localEulerAngles.z;
+    float elapsed = 0f;
+    float duration = 0.02f;
+
+    while (elapsed < duration)
+    {
+        elapsed += Time.deltaTime;
+        float t = Mathf.SmoothStep(0, 1, elapsed / duration);
+        rt.anchoredPosition = Vector2.Lerp(fromPos, startPos, t);
+        float z = Mathf.LerpAngle(fromRot, startRotZ, t);
+        rt.localEulerAngles = new Vector3(0, 0, z);
+        yield return null;
+    }
+
+    rt.anchoredPosition = startPos;
+    rt.localEulerAngles = new Vector3(0, 0, startRotZ);
+}
+    
+    // 21/07/2025 AI-Tag
+    // This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+    public void UpdateCardUI()
+    {
+        Debug.Log("Updating Card UI...");
+        if (cardManager != null)
+        {
+            CardData currentCard = cardManager.GetCurrentCard();
+            if (currentCard != null)
+            {
+                // Update the portrait image
+                if (portraitImage != null)
+                {
+                    portraitImage.sprite = currentCard.portrait;
+                }
+
+                
+                if (typewriterEffect != null && dialogueText != null)
+                {
+
+                    typewriterEffect.StartTyping(currentCard.promptText ?? "No prompt available");
+                    Debug.Log("Typewriter effect started.");
+                }
+                else if (dialogueText != null)
+                {
+                    Debug.LogWarning("TypewriterEffect or dialogueText is not assigned.");
+                    Debug.Log("Where is the failure? Effect: " + typewriterEffect +" Text: "+  dialogueText != null);
+                    dialogueText.text = currentCard.promptText ?? "No prompt available";
+                }
+
+                // dialogueText.text = currentCard.promptText; // Assign the Dialogue TextMeshProUGUI her
+                nameTagText.text = currentCard.characterName; // Assign the NameTag TextMeshProUGUI here 
+
+                // Update other UI elements (if needed)
+                // Example: Update drag hint text or other visuals
+            }
+        }
+    }
+    
+}

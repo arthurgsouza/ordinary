@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 035-iqbal
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Professor Ayesha Iqbal
+  promptText: "My data indicates industry suppressed evidence that climate breakdown
+    is accelerating. Publishing could trigger action but may ruin my career and threaten
+    my family\u2019s stability."
+  leftAnswer: Making the findings public may spark meaningful change despite cost.
+  rightAnswer: "Holding back preserves your career and your family\u2019s security."
+  portrait: {fileID: -5310111386906227960, guid: 7355fe85f5bfec470ad0582784cb0e69, type: 3}
+  leftEffects: f1ffffff140000001e000000ddffffff
+  rightEffects: 0a000000d3ffffffd3ffffff1e000000

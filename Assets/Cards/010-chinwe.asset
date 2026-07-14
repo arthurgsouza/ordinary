@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 010-chinwe
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Chinwe Okoro
+  promptText: Repeated oil discharges have fouled mangroves and waterways. Reporting
+    would force cleanup but eliminate corporate funding that currently sustains the
+    local school.
+  leftAnswer: Exposing spills can restore the river and secure healthier futures
+    for children.
+  rightAnswer: Keeping funding protects schooling now while you look for safe alternatives.
+  portrait: {fileID: 4734101735464426760, guid: 25a245107fb28c810a73a8adf9075dbf, type: 3}
+  leftEffects: ecffffff0f00000014000000e7ffffff
+  rightEffects: 0f000000b0ffffffb0ffffff1e000000

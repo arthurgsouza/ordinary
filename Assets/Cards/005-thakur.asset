@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 005-thakur
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Thakur Mohamed
+  promptText: Tourists are breaking coral for souvenirs; reef degradation accelerates
+    while local guides rely on visitors for income. Enforcing a ban would protect
+    ecosystem function but remove the immediate livelihoods tourists provide.
+  leftAnswer: Safeguarding the reef sustains food and life beyond short-term profit.
+  rightAnswer: Keeping tourism preserves incomes that families depend on today.
+  portrait: {fileID: 5565253141382398990, guid: 421845bb3a4db3b7bbf285563d785fd2, type: 3}
+  leftEffects: 0f000000ceffffffd3ffffff32000000
+  rightEffects: 0f000000ecffffff1900000019000000

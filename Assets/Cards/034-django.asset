@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 034-django
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Django Manush
+  promptText: My pension is invested in extractive operations linked to child labour.
+    Pressing the fund to divest risks cutting my retirement; accepting the investments
+    sustains income but perpetuates harm to others.
+  leftAnswer: Keeping the pension protects your dignity and security in old age.
+  rightAnswer: Pushing to divest refuses profit from harm and honours justice.
+  portrait: {fileID: 6973239116014469309, guid: 427303e2e0df6da88ae7501e9077ee12, type: 3}
+  leftEffects: 0f000000e7fffffff1ffffff0f000000
+  rightEffects: f1ffffff1400000014000000ecffffff

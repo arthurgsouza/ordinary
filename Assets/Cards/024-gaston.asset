@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 024-gaston
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Gast\xF3n Ram\xEDrez"
+  promptText: Rare heritage seeds used in my signature dishes originated from elders
+    without consent. Returning them restores cultural rights but may bankrupt my
+    business and displace staff; retaining them keeps incomes but perpetuates appropriation.
+  leftAnswer: Returning seeds honours elders and repairs long-term cultural trust.
+  rightAnswer: Keeping the business preserves jobs and income for many families today.
+  portrait: {fileID: -1701187360427797443, guid: 689f131c49b2108fcb1f085590b5dac8, type: 3}
+  leftEffects: 0f000000f1ffffffe2ffffff1e000000
+  rightEffects: f6ffffff0f0000001e000000ddffffff

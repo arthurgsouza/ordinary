@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 039-siriya
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: ' Siriya Bandara'
+  promptText: "Protest has been criminalized: fines, arrests and job loss follow
+    public demonstrations. Organising may defend human rights and the people living
+    under occupation around the globe but could endanger my family\u2019s stability
+    if I am detained."
+  leftAnswer: Continuing to organise can defend the commons and inspire broader support.
+  rightAnswer: Stepping back preserves family safety and keeps capacity for future
+    action.
+  portrait: {fileID: 6350303114485959156, guid: c479cdad6348c719c9664f252105889c, type: 3}
+  leftEffects: fbffffff190000001e000000ddffffff
+  rightEffects: 05000000c4ffffffbfffffff28000000

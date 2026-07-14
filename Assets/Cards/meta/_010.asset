@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: _010
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: ___
+  promptText: 'Finally, Restoration. This is the active healing of our world. It''s
+    the hard work of mending the wounds of extraction and building relationships
+    based on reciprocity, not theft. It asks: are we making things whole again?'
+  leftAnswer: Healing is a continuous process.
+  rightAnswer: I will prioritize repair.
+  portrait: {fileID: 6056011943821363919, guid: b37e70ea34e300ae397c451601fa1785, type: 3}
+  leftEffects: 00000000000000000000000000000000
+  rightEffects: 00000000000000000000000000000000

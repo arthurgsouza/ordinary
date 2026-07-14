@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 025-sonia
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "S\xF4nia Suru\xED"
+  promptText: A foreign firm offers to buy rights to your reforested land as carbon
+    credits for a large sum. Accepting delivers immediate funds but transfers control
+    and decision-making away from the community; refusing keeps sovereignty but forgoes
+    rapid capital.
+  leftAnswer: Selling can fund urgent needs and services your people require now.
+  rightAnswer: Keeping control preserves your right to steward the land for generations.
+  portrait: {fileID: 3047562591619490159, guid: fc4783f1788ccdc33a179a1bb835eee7, type: 3}
+  leftEffects: 0f000000baffffffb0ffffff23000000
+  rightEffects: f6ffffff1900000023000000e2ffffff

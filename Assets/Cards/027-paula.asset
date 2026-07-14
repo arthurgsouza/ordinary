@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 027-paula
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Paula Santos
+  promptText: Funding from oil companies could keep my climate lab afloat but requires
+    gagging critical findings about fossil fuels. Accepting preserves jobs and research
+    capacity under constraints; refusing upholds integrity but may close the lab
+    and displace staff.
+  leftAnswer: Taking the funds keeps your team working and the lab running for now.
+  rightAnswer: Refusing protects scientific integrity and public trust despite the
+    cost.
+  portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
+  leftEffects: 0a000000e7ffffffecffffff1e000000
+  rightEffects: ecffffff1e00000019000000e7ffffff

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 036-amina
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Amina Aliyu
+  promptText: "A municipal \u201Cgreen fund\u201D is acquiring assets that indirectly
+    finance private detention services. Public exposure could topple the fund and
+    harm local pensions many elders depend on; silence preserves livelihoods but
+    conceals a possible injustice."
+  leftAnswer: Uncovering the scheme may stop hidden harms even if it disrupts current
+    benefits.
+  rightAnswer: Protecting pensions keeps elders safe now while you seek less damaging
+    remedies.
+  portrait: {fileID: 2982463273216394872, guid: 3dc7fab02d45afaefa370da68b245905, type: 3}
+  leftEffects: e7ffffff0f00000019000000ecffffff
+  rightEffects: 14000000f6ffffffecffffff19000000
