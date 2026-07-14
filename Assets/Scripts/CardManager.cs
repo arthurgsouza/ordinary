@@ -79,6 +79,10 @@ public class CardManager : MonoBehaviour
     public TMP_Text prosperityTag;
     private int prosperityIndex = 6;
 
+    [Header("Lab Experiment Mode")]
+    [Tooltip("Hard mode: randomly inverts effects and escalates penalties as lives run out. Easy mode: effects always apply as authored on the card.")]
+    public bool hardMode = false;
+
 
     void Start()
     {
@@ -249,49 +253,50 @@ public class CardManager : MonoBehaviour
             currentMetrics[^1] = 60; // Set the prosperity metric value
         }
 
-        // Testing mode - random effects
-        int invert = Random.Range(1, 100);
-        Debug.Log("Random invert value: " + invert);
-
-      
-        // ensure we are past the meta cards before applying random effects
-        if (currentIndex > meta_cards.Count+2)
+        // Hard mode - random effect inversion and escalating penalties, used for the lab experiment's Hard condition
+        if (hardMode)
         {
+            int invert = Random.Range(1, 100);
+            Debug.Log("Random invert value: " + invert);
 
-            if (invert >= 75) // Randomly invert effects
+            // ensure we are past the meta cards before applying random effects
+            if (currentIndex > meta_cards.Count+2)
             {
-                for (int j = 0; j < effects.Length; j++)
-                {
-                    Debug.Log("Random invert value: " + invert);
-                    Debug.Log("Inverting effect for metric index " + j + ": " + effects[j] + " -> " + -effects[j]);
-                    effects[j] = -effects[j];
-                }
-            }
 
-            if (lives == 2)
-            {
-                for (int j = 0; j < effects.Length; j++)
+                if (invert >= 75) // Randomly invert effects
                 {
-                    if (effects[j] < 0)
+                    for (int j = 0; j < effects.Length; j++)
                     {
-                        effects[j] = effects[j] + (-5); // Increase negative effects by 5
+                        Debug.Log("Random invert value: " + invert);
+                        Debug.Log("Inverting effect for metric index " + j + ": " + effects[j] + " -> " + -effects[j]);
+                        effects[j] = -effects[j];
                     }
                 }
-            }
 
-            if (lives == 1)
-            {
-                for (int j = 0; j < effects.Length; j++)
+                if (lives == 2)
                 {
-                    if (effects[j] < 0)
+                    for (int j = 0; j < effects.Length; j++)
                     {
-                        effects[j] = effects[j] + (-10); // Increase negative effects by 10
+                        if (effects[j] < 0)
+                        {
+                            effects[j] = effects[j] + (-5); // Increase negative effects by 5
+                        }
+                    }
+                }
+
+                if (lives == 1)
+                {
+                    for (int j = 0; j < effects.Length; j++)
+                    {
+                        if (effects[j] < 0)
+                        {
+                            effects[j] = effects[j] + (-10); // Increase negative effects by 10
+                        }
                     }
                 }
             }
         }
-
-        // End testing mode
+        // End hard mode
 
         for (int i = 0; i < currentMetrics.Length; i++)
         {
@@ -317,19 +322,21 @@ public class CardManager : MonoBehaviour
 
         Debug.Log("Current Progress (after adjustment): " + currentProgress);
 
-        int invert = Random.Range(1, 100);
-        Debug.Log("Random invert value: " + invert);
-        if (invert >= 85 && currentProgress > 0) // Randomly invert progress
+        if (hardMode)
         {
-            int tempCurrentProgress = currentProgress * -1;
-            progressMonitorCount.text = tempCurrentProgress.ToString();
-            Debug.Log("Inverting progress to: " + currentProgress);
+            int invert = Random.Range(1, 100);
+            Debug.Log("Random invert value: " + invert);
+            if (invert >= 85 && currentProgress > 0) // Randomly invert progress
+            {
+                int tempCurrentProgress = currentProgress * -1;
+                progressMonitorCount.text = tempCurrentProgress.ToString();
+                Debug.Log("Inverting progress to: " + currentProgress);
+                return;
+            }
         }
-        else
-        {
-            // the original progress display
-            progressMonitorCount.text = currentProgress <= 9 ? "0" + currentProgress.ToString() : currentProgress.ToString();
-        }  
+
+        // the original progress display
+        progressMonitorCount.text = currentProgress <= 9 ? "0" + currentProgress.ToString() : currentProgress.ToString();
     }
 
     private void UpdateIcons()
