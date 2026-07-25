@@ -92,6 +92,7 @@ public class CardManager : MonoBehaviour
             // InitializeMetrics();
             // Shuffle the cards
             ShuffleCards();
+            
             // DisplayCard(cards[currentIndex]);
             //DisplayCard(meta_cards[metaIndex]);
             UpdateIcons();
@@ -122,14 +123,13 @@ public class CardManager : MonoBehaviour
 
     private void ShuffleCards()
     {
-        // Shuffle the cards using a simple Fisher-Yates shuffle algorithm
-        int n = cards.Count - 1; // Last index
-        if (n < 0) return; // No cards to shuffle
-        var rng = new System.Random();
-        var list = Enumerable.Range(0, n + 1).OrderBy(x => rng.Next()).ToList();
-
-        cards = list.Select(i => cards[i]).ToList(); // Reorder cards based on shuffled indices
-
+        // Fisher-Yates (Durstenfeld) shuffle: walk from the end, swapping each
+        // card with a random one at or before its own position.
+        for (int i = cards.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (cards[i], cards[j]) = (cards[j], cards[i]);
+        }
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
