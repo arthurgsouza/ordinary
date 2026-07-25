@@ -149,7 +149,19 @@ public class CardManager : MonoBehaviour
     }
 
 
+    public void OnSwipeRight()
+    {
+        OnSwipe(cards[currentIndex].rightEffects);
+        
+    }
+
     public void OnSwipeLeft()
+    {
+        OnSwipe(cards[currentIndex].leftEffects);
+
+    }
+
+    private void OnSwipe(int[] cardEffects)
     {
         if ((isGameOver && lives == 0) || (isGameOver && isAWin))
         {
@@ -162,47 +174,12 @@ public class CardManager : MonoBehaviour
             return;
         }else if (isGameOver && lives > 0)
         {
-            // Apply the right effects to the metrics
-            ApplyEffects(cards[currentIndex].leftEffects);
+            ApplyEffects(cardEffects);
             RestartGame();
             return;
         }
 
-        // Apply the left effects to the metrics
-        ApplyEffects(cards[currentIndex].leftEffects);
-        (isGameOver, isAWin) = CheckGameEndConditions();
-         if (isGameOver)
-        {
-            EndGame(isAWin);
-            return;
-        }
-        else
-        {
-            AdvanceToNextCard();// Continue to next card
-        }
-    }
-
-    public void OnSwipeRight()
-    {
-         if ((isGameOver && lives == 0) || (isGameOver && isAWin))
-        {
-            // Quit the game
-            #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                Application.Quit();
-            #endif
-            return;
-        }else if (isGameOver && lives > 0)
-        {
-            // Apply the right effects to the metrics
-            ApplyEffects(cards[currentIndex].rightEffects);
-            RestartGame();
-            return;
-        }
-
-        // Apply the right effects to the metrics
-        ApplyEffects(cards[currentIndex].rightEffects);
+        ApplyEffects(cardEffects);
         (isGameOver, isAWin) = CheckGameEndConditions();
         if (isGameOver)
         {
@@ -213,8 +190,9 @@ public class CardManager : MonoBehaviour
         {
             AdvanceToNextCard();// Continue to next card
         }
-        
     }
+
+
 
     void AdvanceToNextCard()
     {
