@@ -163,7 +163,7 @@ public class CardManager : MonoBehaviour
         }else if (isGameOver && lives > 0)
         {
             // Apply the right effects to the metrics
-            ApplyEffects(cards[currentIndex].rightEffects);
+            ApplyEffects(cards[currentIndex].leftEffects);
             RestartGame();
             return;
         }
