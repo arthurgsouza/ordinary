@@ -92,35 +92,6 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         }
     }
 
-    /*
-        public void OnEndDrag(PointerEventData eventData)
-        {
-            // Hide the hint
-            dragHintContainer.gameObject.SetActive(false);
-            dragHintText.gameObject.SetActive(false);
-
-            float deltaX = rt.anchoredPosition.x - startPos.x;
-            if (Mathf.Abs(deltaX) >= swipeThreshold)
-            {
-                // Decide direction
-                if (deltaX > 0)
-                {
-                    dragHintText.text = ""; // Clear the hint text
-                    StartCoroutine(SwipeAway(new Vector2(offscreenOffsetX, offscreenOffsetY), maxRotationDegrees, OnSwipedRight));
-                }
-                else
-                {
-                    dragHintText.text = ""; // Clear the hint text
-                    StartCoroutine(SwipeAway(new Vector2(-offscreenOffsetX, offscreenOffsetY), -maxRotationDegrees, OnSwipedLeft));
-                }
-            }
-            else
-            {
-                // Not a full swipe → snap back
-                ResetCard();
-            }
-        }
-        */
     
     public void OnEndDrag(PointerEventData eventData)
     {
@@ -163,10 +134,6 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
             float z = Mathf.LerpAngle(initialRot, targetRotZ, t);
             rt.localEulerAngles = new Vector3(0, 0, z);
 
-            // Keep the dragHintContainer visually straight and aligned
-            // dragHintContainer.position = rt.position; // Match position
-            // dragHintContainer.rotation = Quaternion.identity; // Reset rotation to world space
-
 
             yield return null;
         }
@@ -179,11 +146,9 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     }
     void OnSwipedRight()
     {
-        Debug.Log("✅ Swiped RIGHT");
         if (cardManager != null)
         {
             cardManager.OnSwipeRight(); // Notify the CardManager about the right swipe
-            // cardManager.DisplayCard(cardManager.GetCurrentCard()); 
         }
         // Instead of just UpdateCardUI(), use the flip animation
         UpdateCardUI(); // Refresh the UI
@@ -192,25 +157,15 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     void OnSwipedLeft()
     {
-        Debug.Log("❌ Swiped LEFT");
         if (cardManager != null)
         {
             cardManager.OnSwipeLeft(); // Notify the CardManager about the left swipe
-            //cardManager.DisplayCard(cardManager.GetCurrentCard()); 
         }
         // Instead of just UpdateCardUI(), use the flip animation
         UpdateCardUI(); // Refresh the UI
         ResetCard();
     }
-    /*
 
-    void ResetCard()
-    {
-        // snap back to original position & rotation
-        rt.anchoredPosition = startPos;
-        rt.localEulerAngles = new Vector3(0, 0, startRotZ);
-    }
-    */
 
     void ResetCard()
     {
@@ -256,17 +211,12 @@ IEnumerator SmoothReset()
                     portraitImage.sprite = currentCard.portrait;
                 }
 
-                
                 if (typewriterEffect != null && dialogueText != null)
                 {
-
                     typewriterEffect.StartTyping(currentCard.promptText ?? "No prompt available");
-                    Debug.Log("Typewriter effect started.");
                 }
                 else if (dialogueText != null)
                 {
-                    Debug.LogWarning("TypewriterEffect or dialogueText is not assigned.");
-                    Debug.Log("Where is the failure? Effect: " + typewriterEffect +" Text: "+  dialogueText != null);
                     dialogueText.text = currentCard.promptText ?? "No prompt available";
                 }
 
