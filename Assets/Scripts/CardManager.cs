@@ -136,9 +136,10 @@ public class CardManager : MonoBehaviour
         // Now insert the fixed card at position 10 (index 9, if counting from 0)
         // Check that the list is long enough
 
-        if (cards.Count >= (meta_cards.Count-1)+prosperityIndex)
+        int prosperityIndexAdjusted = meta_cards.Count+prosperityIndex-1; // The index where the prosperity card should be inserted (0-based)
+        if (cards.Count >= prosperityIndexAdjusted)
         {
-            cards.Insert((meta_cards.Count-1)+prosperityIndex, activateProsperity); 
+            cards.Insert(prosperityIndexAdjusted, activateProsperity); 
         }
         else
         {
@@ -220,7 +221,7 @@ public class CardManager : MonoBehaviour
     private void ApplyEffects(int[] cardEffects)
     {
         int[] effects = (int[])cardEffects.Clone(); // Work on a copy so the source CardData asset is never mutated
-        if (currentIndex - (meta_cards.Count-1) == prosperityIndex)
+        if (CalculateCurrentProgress() == prosperityIndex-1)
         {
             if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
             {
@@ -289,18 +290,24 @@ public class CardManager : MonoBehaviour
         UpdateProgress();
     }
 
-    private void UpdateProgress()
+    private  int CalculateCurrentProgress()
     {
-        int currentProgress = currentIndex - (meta_cards.Count-1); // Adjust for meta cards
-        Debug.Log("Current Progress (before adjustment): " + currentProgress);
+        int progress = currentIndex - (meta_cards.Count-1); // Adjust for meta cards
+        Debug.Log("Current Progress (before adjustment): " + progress);
         Debug.Log("Current Index: " + currentIndex);
         Debug.Log("Meta Cards Count: " + meta_cards.Count);
 
-        if (currentIndex - (meta_cards.Count-1) >= prosperityIndex) currentProgress -= 1; 
+        if (currentIndex - (meta_cards.Count-1) >= prosperityIndex) progress -= 1; 
    
-        if (currentProgress < 0) currentProgress = 0;
+        if (progress < 0) progress = 0;
 
-        Debug.Log("Current Progress (after adjustment): " + currentProgress);
+        Debug.Log("Current Progress (after adjustment): " + progress);
+        return progress;
+    }
+
+    private void UpdateProgress()
+    {
+        int currentProgress = CalculateCurrentProgress(); 
 
         if (hardMode)
         {
