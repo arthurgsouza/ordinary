@@ -2,8 +2,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using TMPro;
+[RequireComponent(typeof(AudioSource))]
 public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
@@ -35,6 +36,13 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     [Header("Typewriter Effect")]
     public TypewriterEffect typewriterEffect; // Assign in Inspector
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [Tooltip("Played as soon as the player starts dragging the card")]
+    [SerializeField] private AudioClip swipeStartSound;
+    [Tooltip("Played once the swipe threshold is reached and a decision is committed")]
+    [SerializeField] private AudioClip decisionSound;
+
 
     private RectTransform rt;
     private Vector2 startPos;
@@ -44,6 +52,10 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void Awake()
     {
         rt = GetComponent<RectTransform>();
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     void Start()
@@ -64,6 +76,8 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         dragHintText.gameObject.SetActive(true);
         dragHintContainer.gameObject.SetActive(true);
         dragHintText.text = ""; // Clear the text initially
+
+        PlaySound(swipeStartSound);
     }
 
 
@@ -101,6 +115,8 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         float deltaX = rt.anchoredPosition.x - startPos.x;
         if (Mathf.Abs(deltaX) >= swipeThreshold)
         {
+            PlaySound(decisionSound);
+
             if (deltaX > 0)
             {
                 StartCoroutine(SwipeAway(new Vector2(offscreenOffsetX, offscreenOffsetY), maxRotationDegrees, OnSwipedRight));
@@ -170,6 +186,14 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     void ResetCard()
     {
         StartCoroutine(SmoothReset());
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 
 
