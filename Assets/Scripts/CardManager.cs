@@ -342,21 +342,35 @@ public class CardManager : MonoBehaviour
     private (bool, bool) CheckGameEndConditions()
     {
         int metricsAboveThreshold = 0;
+        int metricsLoseThreshold = 0;
 
-        foreach (int metric in currentMetrics)
+        int[] checkGameMetrics = (int[])currentMetrics.Clone();
+        
+        if (CalculateCurrentProgress() < prosperityIndex-1)
         {
+            checkGameMetrics = checkGameMetrics[..^1]; // Exclude the prosperity metric for game end checks
+        }
+        
+        foreach (int metric in checkGameMetrics)
+        {
+            Debug.Log("Metric : " + metric + ", Lives : " + lives);
             if (metric <= loseThreshold)
             {
-                lives--;
-                lifeMonitorCount.text = lives.ToString();
-                Debug.Log("A metric has fallen to or below the lose threshold. Lives remaining: " + lives);
-                return (true, false); // Game over, player loses
+                metricsLoseThreshold++;
             }
 
             if (metric > winThreshold)
             {
                 metricsAboveThreshold++;
             }
+        }
+
+        if (metricsLoseThreshold > 0)
+        {
+            lives--;
+            lifeMonitorCount.text = lives.ToString();
+            Debug.Log("A metric has fallen to or below the lose threshold. Lives remaining: " + lives);
+            return (true, false); // Game over, player loses
         }
 
         if (metricsAboveThreshold >= 3 || currentIndex == lifespan)
@@ -408,9 +422,7 @@ public class CardManager : MonoBehaviour
     
     public void RestartGame()
     {
-        Debug.Log("♻️ Victory! You have successfully completed the game.");
         // Reset game state
-        // currentIndex = 0;
         isGameOver = false;
         InitializeMetrics();
         // ShuffleCards();
