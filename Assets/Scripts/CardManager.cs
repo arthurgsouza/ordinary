@@ -11,6 +11,7 @@ public class CardManager : MonoBehaviour
     [Header("Card Assets")]
     [Tooltip("Drag in all CardData assets in the desired order")]
     public List<CardData> cards = new List<CardData>();
+    private List<CardData> default_cards; 
 
     [Tooltip("Drag in the meta CardData assets in the desired order")]
     public List<CardData> meta_cards = new List<CardData>();
@@ -86,6 +87,8 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
+        default_cards = new List<CardData>(cards);
+
         if (cards.Count > 0)
         {
             // Initialize metrics with random values
@@ -125,6 +128,11 @@ public class CardManager : MonoBehaviour
     {
         // Fisher-Yates (Durstenfeld) shuffle: walk from the end, swapping each
         // card with a random one at or before its own position.
+        if (cards.Count > default_cards.Count)
+        {
+            cards = new List<CardData>(default_cards); // Reset to default cards if the list is longer than default
+        }
+
         for (int i = cards.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
@@ -167,16 +175,17 @@ public class CardManager : MonoBehaviour
         if ((isGameOver && lives == 0) || (isGameOver && isAWin))
         {
             // Quit the game
-            #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-            #else
-                Application.Quit();
-            #endif
+            // #if UNITY_EDITOR
+            //     UnityEditor.EditorApplication.isPlaying = false;
+            // #else
+            //     Application.Quit();
+            // #endif
+            RestartGame(); // Restart the game instead of quitting
             return;
         }else if (isGameOver && lives > 0)
         {
             ApplyEffects(cardEffects);
-            RestartGame();
+            ResumeGame();
             return;
         }
 
@@ -420,7 +429,7 @@ public class CardManager : MonoBehaviour
     }
 
     
-    public void RestartGame()
+    public void ResumeGame()
     {
         // Reset game state
         isGameOver = false;
@@ -430,6 +439,33 @@ public class CardManager : MonoBehaviour
         // DisplayCard(cards[currentIndex]);
         UpdateIcons();
 
+    }
+
+    public void RestartGame()
+    {
+        // Reset game state
+        isGameOver = false;
+        isAWin = false;
+        lives = 3;
+        lifeMonitorCount.text = lives.ToString();
+        currentIndex = 0;
+        currentMetrics = new int[4] { 1, 1, 1, 0}; // Initialize with default values
+
+        if (metricIcons.Length > 3)
+        {
+            Debug.Log("Removing prosperity icon from metricIcons array.");
+            // Remove the last icon (prosperity icon) if it exists
+            IconFiller[] newArray = new IconFiller[metricIcons.Length - 1];
+            Array.Copy(metricIcons, newArray, newArray.Length);
+            metricIcons = newArray;
+        }
+        prosperityTag.text = "..."; // Reset prosperity tag text
+
+        
+        ShuffleCards();
+        UpdateIcons();
+
+        UpdateProgress();
     }
 
 
