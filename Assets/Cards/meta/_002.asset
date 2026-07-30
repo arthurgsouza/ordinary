@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: _002
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: Alice Krenak
-  promptText: 'This is a test simulation. Your task is to guide 13 case studies.
-    If any of those three circles empties completely, the system fails.
-
-
-    We
-    learn from every failure. Are you ready?'
-  leftAnswer: I am ready to begin.
-  rightAnswer: I'll watch the metrics carefully.
+  characterName: Dr. Alice Krenak
+  promptText: "One more thing. This is a supervised trial: nine real cases, carefully
+    chosen, closely watched. If any circle empties, the system fails and we start
+    over. The world doesn't know you exist yet. \n\nReady?"
+  leftAnswer: I am ready to begin
+  rightAnswer: I will watch the circles carefully
   portrait: {fileID: 8976944349794189140, guid: 44c5c765ec4386fb78a7ee1ad7799a7d, type: 3}
   leftEffects: 0a000000fbfffffffbffffff00000000
   rightEffects: fbffffff050000000a00000000000000

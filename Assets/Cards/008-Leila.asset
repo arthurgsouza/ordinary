@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 008-Leila
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Leila Khouri
-  promptText: Traditional fog-net techniques could harvest mist and relieve drought-driven
-    losses, but the occupation authorities ban their use and enforcement is punitive.
-    Deploying them risks arrest yet may avert starvation.
-  leftAnswer: Using fog nets may secure water and feed your children today.
-  rightAnswer: Avoiding banned actions protects family safety while you seek aid.
+  promptText: A long drought has killed our sheep. Ancient fog nets could gather
+    water from the mountain mist, but the occupation authorities have outlawed them.
+    Do I break the ban and risk arrest to feed my children?
+  leftAnswer: Yes, risk the arrest; your children must eat today.
+  rightAnswer: No, stay cautious; keep your family safe and seek safer channels.
   portrait: {fileID: -7032993867501538004, guid: 9361f858fdf681134b19ac9496e900eb, type: 3}
-  leftEffects: 140000000a0000000a000000c9ffffff
-  rightEffects: f1fffffff6fffffff6ffffff0f000000
+  leftEffects: 140000000a0000000a000000d8ffffff
+  rightEffects: f6fffffff6fffffff6ffffff0f000000

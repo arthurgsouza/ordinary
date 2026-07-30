@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 004-nehanda
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Nehanda Mbizi
+  promptText: Aunty Leaf, corporate GMO seeds blew into our fields. Burn the crop
+    and we go hungry this year; keep it and our traditional seeds are at risk forever.
+    What do I sacrifice?
+  leftAnswer: Burn it. Your seed stock feeds every future year
+  rightAnswer: Keep it. Feed the people in front of you
+  portrait: {fileID: 3446053313537681674, guid: 8d560fb3e1e7a6d90968bbd9a6dc87ca, type: 3}
+  leftEffects: ecffffff0a00000023000000e7ffffff
+  rightEffects: 0a000000f6ffffffe2ffffff19000000

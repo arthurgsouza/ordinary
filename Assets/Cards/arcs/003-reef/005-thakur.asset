@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 005-thakur
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Thakur Mohamed
+  promptText: Tourists are breaking pieces of our living reef to sell as souvenirs.
+    If I push for a ban on reef diving and souvenir collecting, my brother, who guides
+    those tourists, loses his income. Do I protect the reef, or the only work our
+    family has?
+  leftAnswer: Yes, ban the souvenir trade; the reef is your life and must be protected.
+  rightAnswer: "No, keep guided tourism; protect today\u2019s jobs while you look
+    for alternatives."
+  portrait: {fileID: 5565253141382398990, guid: 421845bb3a4db3b7bbf285563d785fd2, type: 3}
+  leftEffects: f6ffffff1400000019000000e2ffffff
+  rightEffects: 0a000000ecffffffe7ffffff23000000

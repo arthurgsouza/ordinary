@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 005-thakur 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Thakur Mohamed \u25CF \u25CB \u25CB"
+  promptText: My friend, tourists are breaking pieces of our living reef to sell
+    as souvenirs. My brother guides those tourists; it is his only work. Do I push
+    for a ban?
+  leftAnswer: Yes, push the ban. A dead reef ends all jobs
+  rightAnswer: Not yet. Protect his income while seeking gentler rules
+  portrait: {fileID: 5565253141382398990, guid: 421845bb3a4db3b7bbf285563d785fd2, type: 3}
+  leftEffects: fbffffff0800000008000000f8ffffff
+  rightEffects: 05000000fbfffffffbffffff08000000

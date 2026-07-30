@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: 002-tenzin
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Tenzin Sherpa
-  promptText: Loggers operating under false ranger permits are cutting sacred pines.
-    Recording could provide evidence for accountability, yet surveillance and reprisals
-    already threaten families. The choice balances public exposure with personal
-    safety.
-  leftAnswer: A clear record may force accountability and halt illegal cutting.
-  rightAnswer: Keeping quiet can shield your family from immediate retaliation.
+  promptText: Up here, the sacred pines are everything to our community. Loggers
+    posing as forest rangers are cutting them down, and they jailed my cousin for
+    protesting. Do I film them to expose it, knowing it could endanger my family?
+  leftAnswer: Yes, record and expose them; the truth can stop the logging, but the
+    risk is real.
+  rightAnswer: No, stay quiet for now; protect your family while you find a safer
+    path.
   portrait: {fileID: 8902927609405087841, guid: 1106f6b50e93a15979a2ff8e846bdec6, type: 3}
-  leftEffects: d3ffffff1900000014000000ceffffff
-  rightEffects: 0a000000e7ffffffecfffffff6ffffff
+  leftEffects: ddffffff1900000014000000e2ffffff
+  rightEffects: 0f000000e7ffffffecfffffff6ffffff

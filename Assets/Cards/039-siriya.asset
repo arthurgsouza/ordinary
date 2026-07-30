@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 039-siriya
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: ' Siriya Bandara'
-  promptText: "Protest has been criminalized: fines, arrests and job loss follow
-    public demonstrations. Organising may defend human rights and the people living
-    under occupation around the globe but could endanger my family\u2019s stability
-    if I am detained."
-  leftAnswer: Continuing to organise can defend the commons and inspire broader support.
-  rightAnswer: Stepping back preserves family safety and keeps capacity for future
-    action.
+  promptText: Protest is being criminalised, standing outside council developments
+    risks fines, arrest and lost jobs. I lead the demonstrations for our sacred groves,
+    but if I am jailed, my mother loses her care. Do I keep organising, or step back?
+  leftAnswer: Yes, keep organising; some risks are necessary to protect the land.
+  rightAnswer: No, step back now to protect your family and their security.
   portrait: {fileID: 6350303114485959156, guid: c479cdad6348c719c9664f252105889c, type: 3}
-  leftEffects: fbffffff190000001e000000ddffffff
-  rightEffects: 05000000c4ffffffbfffffff28000000
+  leftEffects: f1ffffff190000001e000000ddffffff
+  rightEffects: 0a000000d8ffffffd3ffffff23000000

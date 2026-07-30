@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: 027-paula
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: Paula Santos
-  promptText: Funding from oil companies could keep my climate lab afloat but requires
-    gagging critical findings about fossil fuels. Accepting preserves jobs and research
-    capacity under constraints; refusing upholds integrity but may close the lab
-    and displace staff.
-  leftAnswer: Taking the funds keeps your team working and the lab running for now.
-  rightAnswer: Refusing protects scientific integrity and public trust despite the
-    cost.
+  characterName: Paula dos Santos
+  promptText: An oil company offers the funding that keeps our climate lab alive,
+    but only if we agree never to publish findings critical of fossil fuels. Without
+    it, the lab closes and my team lose their jobs. Do I accept and censor our results?
+  leftAnswer: "Yes, accept the funding to protect your team\u2019s jobs and the lab\u2019s
+    work."
+  rightAnswer: No, refuse to be censored; scientific integrity must guide the work,
+    even if it hurts now.
   portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
   leftEffects: 0a000000e7ffffffecffffff1e000000
   rightEffects: ecffffff1e00000019000000e7ffffff

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: 036-amina
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Amina Aliyu
-  promptText: "A municipal \u201Cgreen fund\u201D is acquiring assets that indirectly
-    finance private detention services. Public exposure could topple the fund and
-    harm local pensions many elders depend on; silence preserves livelihoods but
-    conceals a possible injustice."
-  leftAnswer: Uncovering the scheme may stop hidden harms even if it disrupts current
-    benefits.
-  rightAnswer: Protecting pensions keeps elders safe now while you seek less damaging
-    remedies.
+  promptText: "Our government\u2019s new \u201Cgreen fund\u201D is quietly buying
+    stakes in private prisons. If I expose it, local pensions could crash, and many
+    elders depend on them. If I stay silent, I lie to my community. Do I blow the
+    whistle?"
+  leftAnswer: Yes, expose the truth; transparency can stop hidden harms, even if
+    it hurts now.
+  rightAnswer: "No, stay silent to protect the elders\u2019 livelihoods while you
+    seek a safer remedy."
   portrait: {fileID: 2982463273216394872, guid: 3dc7fab02d45afaefa370da68b245905, type: 3}
   leftEffects: e7ffffff0f00000019000000ecffffff
   rightEffects: 14000000f6ffffffecffffff19000000

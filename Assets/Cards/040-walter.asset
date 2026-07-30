@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: 040-walter
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: Walter Tull
-  promptText: "A waste firm proposes a local \u201Crecovery depot\u201D near the
-    hills and springs, promising jobs and occasional clinic visits. The depot brings
-    services but also steady plastic handling and risk to water used for medicine."
-  leftAnswer: A depot could bring jobs and services your neighbourhood needs now.
-  rightAnswer: A steady flow of plastic waste risks the springs that sustain your
-    medicines.
+  characterName: WilliamTull
+  promptText: "Weekend visitors are choking our hills and springs with single-use
+    plastic. A waste firm offers a \u201Crecovery depot\u201D beside our green space:
+    jobs and a clinic van some days, but constant plastic handling and a risk to
+    our springs. Do I accept it?"
+  leftAnswer: Yes, accept the depot for the jobs and services now.
+  rightAnswer: No, refuse; the springs and the medicines must stay clean.
   portrait: {fileID: 668175519496886252, guid: 14673f6107338c96ba89447b11958bd0, type: 3}
   leftEffects: 0f000000e7ffffffecffffff14000000
   rightEffects: f6ffffff0f00000019000000e7ffffff

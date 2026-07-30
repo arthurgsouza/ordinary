@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 001-bartolina
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Bartolina Quispe
-  promptText: A consortium links infrastructure pledges to lithium extraction near
-    sacred springs. Proponents promise schools and jobs; independent notes warn of
-    aquifer drawdown and chemical risk. The trade-off is immediate investment versus
-    long-term water security.
-  leftAnswer: Investment can deliver schools and jobs your community needs now.
-  rightAnswer: Losing the springs would erase the foundation no funding can replace.
+  promptText: "We live beside Bolivia\u2019s great lithium reserve. A mining company
+    promises our village schools and clean-energy jobs. But their operation would
+    drain and poison the springs we drink from and irrigate with. Do I accept their
+    \u201Cgreen\u201D future if it costs us our water?"
+  leftAnswer: Yes, take the deal; schools and jobs will help your people now.
+  rightAnswer: No, refuse the mine; water and health must come first.
   portrait: {fileID: 966909835746358733, guid: f70fdbee6465dfa5e905e500b3b0da92, type: 3}
   leftEffects: 0a000000e2ffffffe7ffffff23000000
   rightEffects: ecffffff0a0000000f000000ecffffff

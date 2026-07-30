@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 010-chinwe
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Chinwe Okoro
-  promptText: Repeated oil discharges have fouled mangroves and waterways. Reporting
-    would force cleanup but eliminate corporate funding that currently sustains the
-    local school.
-  leftAnswer: Exposing spills can restore the river and secure healthier futures
-    for children.
-  rightAnswer: Keeping funding protects schooling now while you look for safe alternatives.
+  promptText: "Repeated oil spills have killed our mangroves and poisoned the river.
+    The oil companies\u2019 money is what keeps our school running. If I report the
+    spills and demand a cleanup, we lose it. Do I expose the pollution, or keep the
+    children in school?"
+  leftAnswer: Yes, expose the spills; a clean river secures the longer future.
+  rightAnswer: No, keep the funding; the school sustains children today.
   portrait: {fileID: 4734101735464426760, guid: 25a245107fb28c810a73a8adf9075dbf, type: 3}
-  leftEffects: ecffffff0f00000014000000e7ffffff
-  rightEffects: 0f000000b0ffffffb0ffffff1e000000
+  leftEffects: ecffffff0f00000014000000ddffffff
+  rightEffects: 0f000000d3ffffffceffffff1e000000

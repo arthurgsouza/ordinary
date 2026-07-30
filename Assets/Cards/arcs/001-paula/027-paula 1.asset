@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 027-paula 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Paula dos Santos \u25CF \u25CB \u25CB"
+  promptText: Leaf, our climate lab just lost its public funding. An oil company,
+    Meridian Petro, is offering to keep us alive. Do we listen?
+  leftAnswer: Yes, hear their terms. Listening costs nothing yet
+  rightAnswer: No. Look for cleaner money first, even if slower
+  portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
+  leftEffects: 0000000000000000fbffffff08000000
+  rightEffects: 000000000500000005000000f8ffffff

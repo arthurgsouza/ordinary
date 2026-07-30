@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: 025-sonia
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "S\xF4nia Suru\xED"
-  promptText: A foreign firm offers to buy rights to your reforested land as carbon
-    credits for a large sum. Accepting delivers immediate funds but transfers control
-    and decision-making away from the community; refusing keeps sovereignty but forgoes
-    rapid capital.
-  leftAnswer: Selling can fund urgent needs and services your people require now.
-  rightAnswer: Keeping control preserves your right to steward the land for generations.
+  promptText: "A Swiss company wants to buy our newly reforested tribal land as carbon
+    credits, for millions. If we accept, we lose control of our forest and the right
+    to decide how it is used. Do I sell our sovereignty for cash, or keep the land
+    in our people\u2019s hands?"
+  leftAnswer: Yes, accept the offer; the funds can meet urgent needs now.
+  rightAnswer: No, refuse; keeping control of your forest protects your future and
+    your culture.
   portrait: {fileID: 3047562591619490159, guid: fc4783f1788ccdc33a179a1bb835eee7, type: 3}
-  leftEffects: 0f000000baffffffb0ffffff23000000
+  leftEffects: 0f000000d3ffffffc9ffffff23000000
   rightEffects: f6ffffff1900000023000000e2ffffff

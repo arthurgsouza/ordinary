@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 007-amaru
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Amaru Quispe
-  promptText: A mining concession targets sacred highland peaks for battery minerals,
-    tied to infrastructure pledges like schools. Accepting trades cultural landscapes
-    and burial sites for services; refusing preserves heritage but delays promised
-    benefits.
-  leftAnswer: Infrastructure may deliver urgent services your children need now.
-  rightAnswer: Protecting sacred places preserves long-term cultural and ecological
-    ties.
+  promptText: "A foreign mining firm wants to blast apart our sacred Andean peaks
+    for lithium. In exchange, they will build the schools my children need. Do I
+    trade our mountains and our ancestors\u2019 burial sites for a promise of education?"
+  leftAnswer: Yes, accept the schools; children deserve education and hope.
+  rightAnswer: No, refuse; protect your mountains and your ancestors.
   portrait: {fileID: -7926126768191770822, guid: a8cc4d528454431f18d463754e21069b, type: 3}
   leftEffects: 14000000e2ffffffecffffff19000000
-  rightEffects: f6ffffff1400000019000000f1ffffff
+  rightEffects: f6ffffff1400000019000000e7ffffff

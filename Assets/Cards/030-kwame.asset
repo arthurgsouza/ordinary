@@ -13,14 +13,13 @@ MonoBehaviour:
   m_Name: 030-kwame
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Kwame Boateng
-  promptText: An international lender conditions major climate relief on steep healthcare
-    cuts. Accepting unlocks funds for cleaner infrastructure but endangers essential
-    clinics; rejecting keeps care for vulnerable people but limits resources for
-    green transition.
-  leftAnswer: Accepting funds can accelerate climate action that benefits many over
-    time.
-  rightAnswer: Protecting clinics today preserves lives that cannot be traded for
-    loans.
+  promptText: "The IMF demands that we cut healthcare spending to qualify for a large
+    climate-relief loan. My mother\u2019s life depends on her local clinic. Do I
+    sign away her clinic, or leave our city without funds for cleaner development?"
+  leftAnswer: Yes, accept the loan conditions; the green funding can protect many
+    communities long-term.
+  rightAnswer: No, protect the clinic and your mother; lives cannot be traded for
+    a loan.
   portrait: {fileID: -3013439986038821112, guid: 771390337a9746eeaacd4bc767cdbf94, type: 3}
   leftEffects: 28000000d3ffffff19000000e7ffffff
-  rightEffects: 19000000c4ffffff14000000c9ffffff
+  rightEffects: 19000000ceffffff14000000d3ffffff

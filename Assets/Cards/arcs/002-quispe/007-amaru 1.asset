@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 007-amaru 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Amaru Quispe \u25CF \u25CF \u25CB"
+  promptText: Sister Leaf, Bartolina is my sister. Now Salar Global wants the sacred
+    mountain too, where our ancestors rest. The village is splitting in two.
+  leftAnswer: Consider the trade. The living need schools too
+  rightAnswer: Refuse. Some places should never be for sale
+  portrait: {fileID: -7926126768191770822, guid: a8cc4d528454431f18d463754e21069b, type: 3}
+  leftEffects: 05000000fbfffffff8ffffff08000000
+  rightEffects: fbffffff050000000a000000fbffffff

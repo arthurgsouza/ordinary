@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 017-kofi
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Kofi Mensah
-  promptText: Local miners offer immediate food money if I stay silent about river
-    contamination. Accepting feeds my children now but lets pollution persist; exposing
-    the harm can protect the wider community but I risk losing urgent supplies.
-  leftAnswer: Accepting money can feed your children when hunger is immediate and
-    pressing.
-  rightAnswer: Speaking out can protect many from harm, even if it brings short-term
-    hardship.
+  promptText: Local gold miners have poisoned our river. They have offered me money
+    for food if I stay silent. Do I take their blood money to feed my children, or
+    refuse their tainted coins and expose the truth?
+  leftAnswer: Yes, take the money to feed your children; survival is immediate.
+  rightAnswer: No, expose the poisoning; the truth protects many, at a cost.
   portrait: {fileID: 4543853160360643584, guid: df7c90ab3083fb10fba1144352d41c28, type: 3}
   leftEffects: 14000000f1ffffffecffffff1e000000
   rightEffects: f6ffffff1400000019000000ddffffff

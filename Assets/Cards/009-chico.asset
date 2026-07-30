@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: 009-chico
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Chico Santos
-  promptText: Commercial loggers are removing rare medicinal trees. Covert documentation
-    could create evidence for protection campaigns but would likely mark your family
-    as targets. The decision weighs knowledge preservation and accountability against
-    immediate personal risk.
-  leftAnswer: Documenting the damage can preserve irreplaceable knowledge and build
-    a case for protection.
-  rightAnswer: Keeping quiet shields your loved ones now and lets you gather strength.
+  promptText: Loggers are after the rare medicinal trees we heal with. Photographing
+    their destruction could help protect our forest medicine, but it would make my
+    family a target. Do I expose them, or stay silent to keep my loved ones safe?
+  leftAnswer: Yes, document and expose the damage; this knowledge must be saved.
+  rightAnswer: No, protect your family now and gather strength quietly.
   portrait: {fileID: -8010267897916670544, guid: def3cb5bb08a426a1a34c096fda9600a, type: 3}
-  leftEffects: f1ffffff1400000019000000ecffffff
-  rightEffects: 0a000000c4ffffffbfffffff23000000
+  leftEffects: f1ffffff1400000019000000ddffffff
+  rightEffects: 0a000000d8ffffffd3ffffff28000000

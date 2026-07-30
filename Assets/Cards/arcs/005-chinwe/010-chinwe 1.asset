@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 010-chinwe 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Chinwe Okoro \u25CF \u25CB"
+  promptText: Dear Leaf, Dead Dinossaus's pipeline leaked into our river again, the
+    third spill this year. Their money keeps our school running. Do I report it?
+  leftAnswer: Report it. A clean river outlasts any grant
+  rightAnswer: Stay quiet for now. The school needs the money
+  portrait: {fileID: 4734101735464426760, guid: 25a245107fb28c810a73a8adf9075dbf, type: 3}
+  leftEffects: fbffffff0800000005000000f8ffffff
+  rightEffects: 05000000f8fffffffbffffff08000000

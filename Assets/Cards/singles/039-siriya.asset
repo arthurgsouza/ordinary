@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 039-siriya
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: ' Siriya Bandara'
+  promptText: Friend, protest is now a crime here. I lead the demonstrations for
+    our sacred groves, but if I am jailed my mother loses her care. Do I keep organising?
+  leftAnswer: Keep organising. The groves have no other voice
+  rightAnswer: Step back. Your mother needs you free
+  portrait: {fileID: 6350303114485959156, guid: c479cdad6348c719c9664f252105889c, type: 3}
+  leftEffects: f1ffffff14000000190000000a000000
+  rightEffects: 0f000000ecffffffddffffff14000000

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 008-Leila
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Leila Khouri
+  promptText: Sister, the drought killed our sheep. The old fog nets could pull water
+    from the mist, but they are outlawed here. Setting them risks arrest. Do I risk
+    it?
+  leftAnswer: Wait. Stay free and look for safer aid
+  rightAnswer: Set the nets. Your children must eat today
+  portrait: {fileID: -7032993867501538004, guid: 9361f858fdf681134b19ac9496e900eb, type: 3}
+  leftEffects: f1fffffff6fffffff1ffffff19000000
+  rightEffects: 0f0000000a0000000f000000ecffffff

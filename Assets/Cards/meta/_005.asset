@@ -12,15 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: _005
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: Alice Krenak
-  promptText: 'The indicators have fallen too far. Thank you, Leaf. We learned a
-    great deal from this path.
-
-
-    When you''re ready, we can try again. There
-    are always other choices to make.'
+  characterName: Dr. Alice Krenak
+  promptText: "The indicators have fallen too far, and the board has paused the trial.
+    Thank you, Leaf. We learned a great deal from this path. Rest now. \n\nThere
+    are always other choices to make."
   leftAnswer: Analyzing failure...
-  rightAnswer: Let's restore.
+  rightAnswer: Let's restore
   portrait: {fileID: 8976944349794189140, guid: 44c5c765ec4386fb78a7ee1ad7799a7d, type: 3}
   leftEffects: 9cffffff9cffffff9cffffff9cffffff
   rightEffects: 9cffffff9cffffff9cffffff9cffffff

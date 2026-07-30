@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: _008
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: ___
+  characterName: Dr. Alice Krenak
   promptText: 'Let''s start with People. This isn''t just a number. It''s the well-being
-    of communities, their health, rights, and cultural dignity. It asks: are we caring
-    for each other?'
-  leftAnswer: A community's health is paramount.
-  rightAnswer: Without people, there is no purpose.
+    of communities: their health, their rights, their cultural dignity. It asks:
+    are we caring for each other?'
+  leftAnswer: Understood. Health, rights, dignity
+  rightAnswer: Without people, there is no purpose
   portrait: {fileID: -7281035786882296523, guid: 8e65ca5af7a60d6119f4123ffce73c9d, type: 3}
-  leftEffects: 00000000220000000000000000000000
-  rightEffects: 00000000270000000000000000000000
+  leftEffects: 000000002c0000000000000000000000
+  rightEffects: 00000000310000000000000000000000

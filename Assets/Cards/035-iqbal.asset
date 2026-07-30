@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 035-iqbal
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Professor Ayesha Iqbal
-  promptText: "My data indicates industry suppressed evidence that climate breakdown
-    is accelerating. Publishing could trigger action but may ruin my career and threaten
-    my family\u2019s stability."
-  leftAnswer: Making the findings public may spark meaningful change despite cost.
-  rightAnswer: "Holding back preserves your career and your family\u2019s security."
+  promptText: "My research shows that major oil companies hid data proving climate
+    collapse is closer than they claim. If I publish, my career and my daughter\u2019s
+    security are at risk. Do I publish, or stay silent?"
+  leftAnswer: Yes, publish the findings; truth can spark action, even at a cost.
+  rightAnswer: "No, stay silent for now to protect your family\u2019s security."
   portrait: {fileID: -5310111386906227960, guid: 7355fe85f5bfec470ad0582784cb0e69, type: 3}
   leftEffects: f1ffffff140000001e000000ddffffff
-  rightEffects: 0a000000d3ffffffd3ffffff1e000000
+  rightEffects: 0a000000ddffffffd3ffffff1e000000

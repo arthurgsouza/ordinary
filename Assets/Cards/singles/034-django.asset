@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 034-django
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: Django Manush
+  promptText: Young one, I just learned my pension is invested in mines where children
+    work underground. Pushing the fund to divest costs me my income. Keep my security,
+    or refuse to profit?
+  leftAnswer: Divest. Children's safety outweighs any pension
+  rightAnswer: Keep it. Your security matters too
+  portrait: {fileID: 6973239116014469309, guid: 427303e2e0df6da88ae7501e9077ee12, type: 3}
+  leftEffects: 0f0000000a00000014000000ecffffff
+  rightEffects: f1fffffff6ffffffecffffff19000000

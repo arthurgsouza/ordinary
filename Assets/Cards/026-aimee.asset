@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: 026-aimee
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Aim\xE9e Lumumba (CEO)"
-  promptText: My supply chain sources cobalt tied to child labour and conflict. Continuing
-    sales meets shareholder demands and sustains jobs; halting production disrupts
-    incomes but severs ties to exploitative extraction.
-  leftAnswer: Continuing supplies keeps workers employed and families afloat in the
-    short term.
-  rightAnswer: Cutting ties ends harm at the source, even if it risks company survival.
+  promptText: Our batteries use cobalt from mines where children work and families
+    suffer, and our shareholders demand record profits this year. Do I keep selling
+    these devices and profit from that harm, or halt production and risk bankrupting
+    the company?
+  leftAnswer: Yes, continue production; the jobs it supports steady many families
+    today.
+  rightAnswer: No, stop the supply chain; end the harm, even if you risk losing everything.
   portrait: {fileID: -321876697843178499, guid: 9249ed9fc2a01c99f90d0ebc58bf7b90, type: 3}
-  leftEffects: e2ffffffd8ffffffd3ffffff23000000
+  leftEffects: ecffffffd8ffffffd3ffffff23000000
   rightEffects: f1ffffff190000001e000000ddffffff

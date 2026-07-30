@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 018-adam
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Adam Darwish
-  promptText: Settlers are burning ancient olive trees that hold community memory.
-    Documenting the attacks could build evidence and spur action, but public exposure
-    may invite dangerous reprisals against my family.
-  leftAnswer: A record of events can force accountability, even at personal risk.
-  rightAnswer: Protecting your family now preserves safety and care for loved ones.
+  promptText: Settlers have begun burning our ancient olive trees. If I film them
+    to report it, they will retaliate against my family. Do I stay silent to protect
+    my loved ones, or document it to save our history?
+  leftAnswer: Yes, film and report it; evidence can force action, though it brings
+    danger.
+  rightAnswer: No, stay silent for safety; protect your family first and heal later.
   portrait: {fileID: -8178343630106342469, guid: 5e17aa4da8e78824ab1ec702d788824e, type: 3}
-  leftEffects: f6ffffff0f00000019000000f1ffffff
-  rightEffects: 0f000000f6ffffffe7ffffff14000000
+  leftEffects: f1ffffff1400000019000000ecffffff
+  rightEffects: 14000000ecffffffe7ffffff19000000

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 034-django
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Django Manush
-  promptText: My pension is invested in extractive operations linked to child labour.
-    Pressing the fund to divest risks cutting my retirement; accepting the investments
-    sustains income but perpetuates harm to others.
-  leftAnswer: Keeping the pension protects your dignity and security in old age.
-  rightAnswer: Pushing to divest refuses profit from harm and honours justice.
+  promptText: I have just learned that my pension is invested in mines where children
+    work underground. If I press the fund to divest, I lose my modest income. Do
+    I keep my pension for security, or refuse to profit from their suffering?
+  leftAnswer: Yes, keep the pension; your dignity and security in old age matter.
+  rightAnswer: No, push to divest; no income is worth child labour.
   portrait: {fileID: 6973239116014469309, guid: 427303e2e0df6da88ae7501e9077ee12, type: 3}
   leftEffects: 0f000000e7fffffff1ffffff0f000000
   rightEffects: f1ffffff1400000014000000ecffffff

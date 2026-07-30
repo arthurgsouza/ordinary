@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 024-gaston
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Gast\xF3n Ram\xEDrez"
-  promptText: Rare heritage seeds used in my signature dishes originated from elders
-    without consent. Returning them restores cultural rights but may bankrupt my
-    business and displace staff; retaining them keeps incomes but perpetuates appropriation.
-  leftAnswer: Returning seeds honours elders and repairs long-term cultural trust.
-  rightAnswer: Keeping the business preserves jobs and income for many families today.
+  promptText: "My restaurant\u2019s signature dishes use rare seeds taken from indigenous
+    elders without permission. If I return them, we go bankrupt and my staff lose
+    their jobs. Do I keep my tables full at the cost of their ancestral legacy?"
+  leftAnswer: Yes, keep the restaurant open; many families depend on these jobs today.
+  rightAnswer: No, return the seeds; honour the elders and protect their heritage.
   portrait: {fileID: -1701187360427797443, guid: 689f131c49b2108fcb1f085590b5dac8, type: 3}
-  leftEffects: 0f000000f1ffffffe2ffffff1e000000
-  rightEffects: f6ffffff0f0000001e000000ddffffff
+  leftEffects: 0a000000f1ffffffe2ffffff1e000000
+  rightEffects: f1ffffff140000001e000000d8ffffff

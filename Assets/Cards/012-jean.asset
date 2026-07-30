@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 012-jean
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Jean Toussaint
-  promptText: An international lender offers to erase community debt if public wells
-    are sold to private operators. Selling yields immediate fiscal relief but forfeits
-    guaranteed free water for future generations.
-  leftAnswer: Debt relief can buy immediate breathing room for urgent needs.
-  rightAnswer: Selling wells relinquishes a birthright to water for your children.
+  promptText: The IMF will erase our debts if we sell our public wells to foreign
+    companies. If I sign, my children lose free access to water. Do I trade our birthright
+    for debt relief?
+  leftAnswer: Yes, sign for debt relief; it buys breathing room now.
+  rightAnswer: "No, keep your wells; water is your children\u2019s birthright."
   portrait: {fileID: -6390406276774682509, guid: f16bffc3c2eedaa0884fec014f3d9b23, type: 3}
   leftEffects: 14000000e7ffffffe2ffffff23000000
-  rightEffects: d3ffffff1400000019000000c4ffffff
+  rightEffects: ddffffff1400000019000000d3ffffff

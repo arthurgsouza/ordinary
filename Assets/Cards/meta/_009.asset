@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
   m_Name: _009
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  characterName: ___
+  characterName: Dr. Alice Krenak
   promptText: 'Next is Planet. This measures the health of our living Earth: the
-    water, air, and soil that we are a part of, not separate from. It asks: are we
-    honoring our home?'
-  leftAnswer: We must protect our biotic community.
-  rightAnswer: The planet's balance is everything.
+    water, air, and soil we are a part of, not separate from. It asks: are we honoring
+    our home?'
+  leftAnswer: Part of, not separate. Noted
+  rightAnswer: The Planet's balance is everything
   portrait: {fileID: 1157854006156847242, guid: 9086f1e172a790b8093ffa27ccec850b, type: 3}
-  leftEffects: 00000000000000002700000000000000
-  rightEffects: 00000000000000002200000000000000
+  leftEffects: 00000000000000003100000000000000
+  rightEffects: 00000000000000002c00000000000000

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 006-wangari 1
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Mwanajuma Hassan \u25CF \u25CF \u25CB"
+  promptText: Child, I live in Mohamed's village. Industrial trawlers came this week,
+    dragging chains across our reef. Suddenly the souvenirs look like a small problem.
+  leftAnswer: Rally the village. Together you are harder to ignore.
+  rightAnswer: Hold back. Armed crews are not worth lives
+  portrait: {fileID: -6240534556767299599, guid: ea1c49667730c8e1b9cef04c5f644358, type: 3}
+  leftEffects: fbffffff080000000500000000000000
+  rightEffects: 05000000f8fffffffbffffff00000000

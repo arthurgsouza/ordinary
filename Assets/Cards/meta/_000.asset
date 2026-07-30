@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: <<          >>
   promptText: "\nA single leaf can change the wind. \n\nSwipe to begin.\n\n\n\u2014
     made with love by Arthur"
-  leftAnswer: I'm ready!
-  rightAnswer: Tell me more.
+  leftAnswer: Let's begin
+  rightAnswer: Show me how
   portrait: {fileID: -4320295261928297051, guid: f1adc36890c831fd58e7109894c54ef3, type: 3}
   leftEffects: 00000000000000000000000000000000
   rightEffects: 00000000000000000000000000000000

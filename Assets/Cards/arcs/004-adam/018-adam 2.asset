@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 018-adam 2
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Adam Darwish \u25CF \u25CF"
+  promptText: Friend, a journalist wants to publish our story with my name as witness.
+    Named, it is stronger. And more dangerous.
+  leftAnswer: Give your name. A face is harder to ignore
+  rightAnswer: Stay anonymous. The trees need you alive
+  portrait: {fileID: -8178343630106342469, guid: 5e17aa4da8e78824ab1ec702d788824e, type: 3}
+  leftEffects: f1ffffff000000001900000005000000
+  rightEffects: 0f00000000000000ecffffff0a000000
