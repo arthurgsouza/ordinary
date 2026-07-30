@@ -12,4 +12,7 @@ public class CardData : ScriptableObject
     [Header("Indicator Effects (order: People, Planet, Restoration, Prosperity)")]
     public int[] leftEffects  = new int[4];
     public int[] rightEffects = new int[4];
+
+    [Header("Progress Impact")]
+    public bool impactOnProgress = true;
 }
