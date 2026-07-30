@@ -31,9 +31,7 @@ public class CardManager : MonoBehaviour
 
     [Tooltip("Drag in the Single Cards in the desired order")]
     public List<CardData> singleCards = new List<CardData>();
-
-
-
+    private int numberOfSingleCards = 6; // Number of single cards to include in the game
 
 
 
@@ -87,15 +85,16 @@ public class CardManager : MonoBehaviour
     public TypewriterEffect typewriterEffect; // Assign this in the Inspector
 
     private int currentIndex = 0;
-    private int lifespan = 20; // Number of cards before reshuffle
+    private int goal = 9; // Number of cards to reach for the game to be considered complete
     private int lives = 3; // Number of lives
 
 
     [Header("UI Interface Elements")]
     public TMP_Text lifeMonitorCount; // Number of lives to display
     public TMP_Text progressMonitorCount; // Current card index to display
+    private int currentProgress = 0; // Current progress to display
     public TMP_Text prosperityTag;
-    private int prosperityIndex = 6;
+    private int prosperityIndex = 5; // The index at which the prosperity card is inserted (1-based)
 
     [Header("Lab Experiment Mode")]
     [Tooltip("Hard mode: randomly inverts effects and escalates penalties as lives run out. Easy mode: effects always apply as authored on the card.")]
@@ -109,8 +108,6 @@ public class CardManager : MonoBehaviour
         if (cards.Count > 0)
         {
             // Initialize metrics with random values
-            // InitializeMetrics();
-            // Shuffle the cards
             ShuffleCards();
             
             // DisplayCard(cards[currentIndex]);
@@ -154,32 +151,14 @@ public class CardManager : MonoBehaviour
 
     private void ShuffleCards()
     {
-        // Fisher-Yates (Durstenfeld) shuffle: walk from the end, swapping each
-        // card with a random one at or before its own position.
-        if (cards.Count > default_cards.Count)
-        {
-            cards = new List<CardData>(FisherYatesShuffle(default_cards.ToArray())); // Reset to default cards if the list is longer than default
-        }
-
+        cards = new List<CardData>(FisherYatesShuffle(singleCards.ToArray())).ToList().Take(numberOfSingleCards).ToList(); // Reset to default cards if the list is longer than default
+        
         InsertTwoArcCards(); // Insert 2-arc cards at random positions in the shuffled list
         InsertThreeArcCards();  // Insert 3-arc cards at random positions in the shuffled list
+        InsertProsperityCard(); // Insert the prosperity card at the specified index
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
-        // Now insert the fixed card at position 10 (index 9, if counting from 0)
-        // Check that the list is long enough
-
-        int prosperityIndexAdjusted = meta_cards.Count+prosperityIndex-1; // The index where the prosperity card should be inserted (0-based)
-        if (cards.Count >= prosperityIndexAdjusted)
-        {
-            cards.Insert(prosperityIndexAdjusted, activateProsperity); 
-        }
-        else
-        {
-            cards.Add(activateProsperity); // If too short, just add it at the end
-        }
-    
-        Debug.Log("Cards shuffled." + string.Join(", ", cards.Select(c => c.characterName)));
     }
 
     private void InsertTwoArcCards()
@@ -203,7 +182,7 @@ public class CardManager : MonoBehaviour
         }
     }
 
-        private void InsertThreeArcCards()
+    private void InsertThreeArcCards()
     {
         // Insert 3-arc cards at random positions in the shuffled list
         int start = 0; // starting integer
@@ -226,7 +205,17 @@ public class CardManager : MonoBehaviour
         }
     }
 
-
+    private void InsertProsperityCard()
+    {
+        if (cards.Count >= prosperityIndex-1)
+        {
+            cards.Insert(prosperityIndex, activateProsperity); 
+        }
+        else
+        {
+            cards.Add(activateProsperity); // If too short, just add it at the end
+        }
+    }
 
     public void OnSwipeRight()
     {
@@ -272,8 +261,6 @@ public class CardManager : MonoBehaviour
         }
     }
 
-
-
     void AdvanceToNextCard()
     {
         currentIndex++;
@@ -300,7 +287,7 @@ public class CardManager : MonoBehaviour
     private void ApplyEffects(int[] cardEffects)
     {
         int[] effects = (int[])cardEffects.Clone(); // Work on a copy so the source CardData asset is never mutated
-        if (CalculateCurrentProgress() == prosperityIndex-1)
+        if (currentProgress == prosperityIndex-1)
         {
             if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
             {
@@ -369,30 +356,31 @@ public class CardManager : MonoBehaviour
         UpdateProgress();
     }
 
-    private  int CalculateCurrentProgress()
-    {
-        int progress = currentIndex - (meta_cards.Count-1); // Adjust for meta cards
-        Debug.Log("Current Progress (before adjustment): " + progress);
-        Debug.Log("Current Index: " + currentIndex);
-        Debug.Log("Meta Cards Count: " + meta_cards.Count);
+    // private  int CalculateCurrentProgress()
+    // {
+    //     int progress = currentIndex - (meta_cards.Count-1); // Adjust for meta cards
+    //     Debug.Log("Current Progress (before adjustment): " + progress);
+    //     Debug.Log("Current Index: " + currentIndex);
+    //     Debug.Log("Meta Cards Count: " + meta_cards.Count);
 
-        if (currentIndex - (meta_cards.Count-1) >= prosperityIndex) progress -= 1; 
+    //     if (currentIndex - (meta_cards.Count-1) >= prosperityIndex) progress -= 1; 
    
-        if (progress < 0) progress = 0;
+    //     if (progress < 0) progress = 0;
 
-        Debug.Log("Current Progress (after adjustment): " + progress);
-        return progress;
-    }
+    //     Debug.Log("Current Progress (after adjustment): " + progress);
+    //     return progress;
+    // }
 
     private void UpdateProgress()
     {
-        int currentProgress = CalculateCurrentProgress(); 
+        if (cards[currentIndex].impactOnProgress) currentProgress++;
+        //int currentProgress = CalculateCurrentProgress(); 
 
         if (hardMode)
         {
             int invert = Random.Range(1, 100);
             Debug.Log("Random invert value: " + invert);
-            if (invert >= 85 && currentProgress > 0) // Randomly invert progress
+            if (invert >= 75 && currentProgress > 0) // Randomly invert progress
             {
                 int tempCurrentProgress = currentProgress * -1;
                 progressMonitorCount.text = tempCurrentProgress.ToString();
@@ -417,7 +405,6 @@ public class CardManager : MonoBehaviour
         Debug.Log("Icon updated: " + string.Join(", ", currentMetrics));
     }
 
-
     private (bool, bool) CheckGameEndConditions()
     {
         int metricsAboveThreshold = 0;
@@ -425,7 +412,9 @@ public class CardManager : MonoBehaviour
 
         int[] checkGameMetrics = (int[])currentMetrics.Clone();
         
-        if (CalculateCurrentProgress() < prosperityIndex-1)
+        // if (CalculateCurrentProgress() < prosperityIndex-1)
+        //if(currentProgress < prosperityIndex-1)
+        if (metricIcons.Length < 4) // Check if the prosperity icon is not present
         {
             checkGameMetrics = checkGameMetrics[..^1]; // Exclude the prosperity metric for game end checks
         }
@@ -452,7 +441,7 @@ public class CardManager : MonoBehaviour
             return (true, false); // Game over, player loses
         }
 
-        if (metricsAboveThreshold >= 3 || currentIndex == lifespan)
+        if (metricsAboveThreshold >= 3 || currentProgress == goal)
         {
             //EndGame(true); // Player wins
             return (true, true); // Game over, player wins
@@ -502,15 +491,12 @@ public class CardManager : MonoBehaviour
 
     }
 
-    
     public void ResumeGame()
     {
         // Reset game state
         isGameOver = false;
         InitializeMetrics();
-        // ShuffleCards();
         AdvanceToNextCard();// Continue to next card
-        // DisplayCard(cards[currentIndex]);
         UpdateIcons();
 
     }
@@ -518,6 +504,7 @@ public class CardManager : MonoBehaviour
     public void RestartGame()
     {
         // Reset game state
+        currentProgress = 0;
         isGameOver = false;
         isAWin = false;
         lives = 3;
@@ -539,14 +526,8 @@ public class CardManager : MonoBehaviour
 
         
         ShuffleCards();
-        // UpdateIcons();
-
         UpdateProgress();
         Debug.Log("Game restarted. Lives: " + lives + ", Current Index: " + currentIndex + ", Metrics: " + string.Join(", ", currentMetrics));
     }
 
-
-    
-    
-    
 }
