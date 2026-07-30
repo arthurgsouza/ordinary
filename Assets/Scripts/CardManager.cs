@@ -23,11 +23,11 @@ public class CardManager : MonoBehaviour
 
     [Tooltip("Drag in the 3-arc Cards in the desired order")]
     public List<CardData> threeArcCards = new List<CardData>();
-    //private int numberOfThreeArcCards = 1; // Number of 3-arc cards to include in the game
+    private int numberOfThreeArcCards = 1; // Number of 3-arc cards to include in the game
 
     [Tooltip("Drag in the 2-arc Cards in the desired order")]
     public List<CardData> twoArcCards = new List<CardData>();
-    //private int numberOfTwoArcCards = 2; // Number of 2-arc cards to include in the game
+    private int numberOfTwoArcCards = 2; // Number of 2-arc cards to include in the game
 
     [Tooltip("Drag in the Single Cards in the desired order")]
     public List<CardData> singleCards = new List<CardData>();
@@ -158,10 +158,11 @@ public class CardManager : MonoBehaviour
         // card with a random one at or before its own position.
         if (cards.Count > default_cards.Count)
         {
-            //cards = new List<CardData>(default_cards); // Reset to default cards if the list is longer than default
             cards = new List<CardData>(FisherYatesShuffle(default_cards.ToArray())); // Reset to default cards if the list is longer than default
         }
 
+        InsertTwoArcCards(); // Insert 2-arc cards at random positions in the shuffled list
+        InsertThreeArcCards();  // Insert 3-arc cards at random positions in the shuffled list
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
@@ -180,6 +181,51 @@ public class CardManager : MonoBehaviour
     
         Debug.Log("Cards shuffled." + string.Join(", ", cards.Select(c => c.characterName)));
     }
+
+    private void InsertTwoArcCards()
+    {
+        // Insert 2-arc cards at random positions in the shuffled list
+        int start = 0; // starting integer
+        int end = twoArcCards.Count/2;  // ending integer
+        List<int> twoArcIndices = FisherYatesShuffle(Enumerable.Range(start, end - start).ToArray()).ToList();
+        Debug.Log("Shuffled twoArcIndices: " + string.Join(", ", twoArcIndices));
+
+        for (int i = 0; i < numberOfTwoArcCards && twoArcCards.Count > 0; i ++)
+        {
+            int randomIndex = Random.Range(0, cards.Count); // +1 to allow insertion at the end
+            int randomIndex2 = Random.Range(randomIndex + 1, cards.Count); // Ensure the second card is inserted right after the first
+            Debug.Log("Inserting 2-arc cards at random index: " + randomIndex + "Random index 2: " + randomIndex2 + " Total cards: " + cards.Count + " Two-arc cards count: " + twoArcCards.Count);
+            
+            int cardIndice = twoArcIndices[i]*2; // Use shuffled index for 2-arc cards
+
+            cards.Insert(randomIndex, twoArcCards[cardIndice]);
+            cards.Insert(randomIndex2, twoArcCards[cardIndice+1]); // Insert the same card again for the second arc
+        }
+    }
+
+        private void InsertThreeArcCards()
+    {
+        // Insert 3-arc cards at random positions in the shuffled list
+        int start = 0; // starting integer
+        int end = threeArcCards.Count/3;  // ending integer
+        List<int> threeArcIndices = FisherYatesShuffle(Enumerable.Range(start, end - start).ToArray()).ToList();
+        Debug.Log("Shuffled threeArcIndices: " + string.Join(", ", threeArcIndices));
+
+        for (int i = 0; i < numberOfThreeArcCards && threeArcCards.Count > 0; i ++)
+        {
+            int randomIndex = Random.Range(0, cards.Count); // +1 to allow insertion at the end
+            int randomIndex2 = Random.Range(randomIndex + 1, cards.Count); // Ensure the second card is inserted right after the first
+            int randomIndex3 = Random.Range(randomIndex2 + 1, cards.Count); // Ensure the third card is inserted right after the second
+            Debug.Log("Inserting 3-arc cards at random index: " + randomIndex + "Random index 2: " + randomIndex2 + "Random index 3: " + randomIndex3 + " Total cards: " + cards.Count + " Three-arc cards count: " + threeArcCards.Count);
+            
+            int cardIndice = threeArcIndices[i]*3; // Use shuffled index for 3-arc cards
+
+            cards.Insert(randomIndex, threeArcCards[cardIndice]);
+            cards.Insert(randomIndex2, threeArcCards[cardIndice+1]); // Insert the same card again for the second arc
+            cards.Insert(randomIndex3, threeArcCards[cardIndice+2]); // Insert the third card
+        }
+    }
+
 
 
     public void OnSwipeRight()
