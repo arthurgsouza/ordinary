@@ -21,6 +21,23 @@ public class CardManager : MonoBehaviour
     [Tooltip("Drag in the Game Overs Cards in the desired order")]
     public List<CardData> gameOverCards = new List<CardData>();
 
+    [Tooltip("Drag in the 3-arc Cards in the desired order")]
+    public List<CardData> threeArcCards = new List<CardData>();
+    //private int numberOfThreeArcCards = 1; // Number of 3-arc cards to include in the game
+
+    [Tooltip("Drag in the 2-arc Cards in the desired order")]
+    public List<CardData> twoArcCards = new List<CardData>();
+    //private int numberOfTwoArcCards = 2; // Number of 2-arc cards to include in the game
+
+    [Tooltip("Drag in the Single Cards in the desired order")]
+    public List<CardData> singleCards = new List<CardData>();
+
+
+
+
+
+
+
     [Header("Add Prosperity Card")]
     public CardData activateProsperity;
 
@@ -51,10 +68,10 @@ public class CardManager : MonoBehaviour
 
     // Current metric values (0-100 for each metric)
     private int[] currentMetrics = new int[4] { 1, 1, 1, 50 }; // Initialize with default values
-    public int minMetricStartValue = 20;
-    public int maxMetricStartValue = 30;
+    public int minMetricStartValue = 30;
+    public int maxMetricStartValue = 50;
     [Tooltip("Threshold for winning the game (3 metrics above this value)")]
-    public int winThreshold = 90;
+    public int winThreshold = 101;
     [Tooltip("Threshold for losing the game (any metric at or below this value)")]
     public int loseThreshold = 0;
 
@@ -124,20 +141,27 @@ public class CardManager : MonoBehaviour
 
     }
 
+
+    private T[] FisherYatesShuffle<T>(T[] items)
+    {
+        for (int i = items.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (items[i], items[j]) = (items[j], items[i]);
+        }
+        return items;
+    }
+
     private void ShuffleCards()
     {
         // Fisher-Yates (Durstenfeld) shuffle: walk from the end, swapping each
         // card with a random one at or before its own position.
         if (cards.Count > default_cards.Count)
         {
-            cards = new List<CardData>(default_cards); // Reset to default cards if the list is longer than default
+            //cards = new List<CardData>(default_cards); // Reset to default cards if the list is longer than default
+            cards = new List<CardData>(FisherYatesShuffle(default_cards.ToArray())); // Reset to default cards if the list is longer than default
         }
 
-        for (int i = cards.Count - 1; i > 0; i--)
-        {
-            int j = Random.Range(0, i + 1);
-            (cards[i], cards[j]) = (cards[j], cards[i]);
-        }
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
@@ -415,6 +439,8 @@ public class CardManager : MonoBehaviour
 
             //prompt = "I am sorry, Leaf, you are not ready yet. We are going to deactivate you for now. It was nice to meet you Leaf 42b.";
             gameOverCard = gameOverCards[2];
+            currentMetrics = new int[4] { 0, 0, 0, 0 }; // Reset metrics to zero
+            UpdateIcons(); // Update the icons to reflect the reset metrics
             Debug.Log("You lost your last life! Game Over.");
             return;
         }
@@ -422,6 +448,8 @@ public class CardManager : MonoBehaviour
         if (lives > 0 && playerWon)
         {
             gameOverCard = gameOverCards[3];
+            currentMetrics = new int[4] { 101, 101, 101, 101 }; // Reset metrics to zero
+            UpdateIcons(); // Update the icons to reflect the reset metrics
             Debug.Log("Victory! You have successfully completed the game.");
             return;
         }
@@ -451,6 +479,8 @@ public class CardManager : MonoBehaviour
         currentIndex = 0;
         currentMetrics = new int[4] { 1, 1, 1, 0}; // Initialize with default values
 
+        UpdateIcons();
+
         if (metricIcons.Length > 3)
         {
             Debug.Log("Removing prosperity icon from metricIcons array.");
@@ -463,9 +493,10 @@ public class CardManager : MonoBehaviour
 
         
         ShuffleCards();
-        UpdateIcons();
+        // UpdateIcons();
 
         UpdateProgress();
+        Debug.Log("Game restarted. Lives: " + lives + ", Current Index: " + currentIndex + ", Metrics: " + string.Join(", ", currentMetrics));
     }
 
 
