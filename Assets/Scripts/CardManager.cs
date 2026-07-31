@@ -307,18 +307,6 @@ public class CardManager : MonoBehaviour
     private void ApplyEffects(int[] cardEffects)
     {
         int[] effects = (int[])cardEffects.Clone(); // Work on a copy so the source CardData asset is never mutated
-        // if (currentProgress == prosperityIndex-1)
-        // {
-        //     if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
-        //     {
-        //         var newMetricIcons = new IconFiller[metricIcons.Length + 1];
-        //         metricIcons.CopyTo(newMetricIcons, 0);
-        //         newMetricIcons[^1] = prosperityIcon;
-        //         metricIcons = newMetricIcons; // Assign the new array back to metricIcons
-        //         prosperityTag.text = "Prosperity";
-        //     }
-        //     currentMetrics[^1] = 60; // Set the prosperity metric value
-        // }
 
         // Hard mode - random effect inversion and escalating penalties, used for the lab experiment's Hard condition
         if (hardMode)
@@ -381,6 +369,7 @@ public class CardManager : MonoBehaviour
     private void UpdateProgress()
     {
         if (cards[currentIndex].impactOnProgress) currentProgress++;
+        Debug.Log(" 🤡🤡🤡 Progress updated: " + currentProgress + "/" + goal + " (Card: " + cards[currentIndex].characterName + ", impactOnProgress: " + cards[currentIndex].impactOnProgress + ")");
         //int currentProgress = CalculateCurrentProgress(); 
 
         if (hardMode)
@@ -397,6 +386,10 @@ public class CardManager : MonoBehaviour
         }
 
         // the original progress display
+        if (currentProgress >= goal)
+        {
+            currentProgress = Mathf.Clamp(currentProgress, 0, goal); // Ensure currentProgress does not exceed goal
+        }
         progressMonitorCount.text = currentProgress <= 9 ? "0" + currentProgress.ToString() : currentProgress.ToString();
     }
 
@@ -418,9 +411,7 @@ public class CardManager : MonoBehaviour
         int metricsLoseThreshold = 0;
 
         int[] checkGameMetrics = (int[])currentMetrics.Clone();
-        
-        // if (CalculateCurrentProgress() < prosperityIndex-1)
-        //if(currentProgress < prosperityIndex-1)
+
         if (metricIcons.Length < 4) // Check if the prosperity icon is not present
         {
             checkGameMetrics = checkGameMetrics[..^1]; // Exclude the prosperity metric for game end checks
@@ -442,13 +433,14 @@ public class CardManager : MonoBehaviour
 
         if (metricsLoseThreshold > 0)
         {
+            currentProgress--;
             lives--;
             lifeMonitorCount.text = lives.ToString();
             Debug.Log("A metric has fallen to or below the lose threshold. Lives remaining: " + lives);
             return (true, false); // Game over, player loses
         }
 
-        if (metricsAboveThreshold >= 3 || currentProgress == goal)
+        if (metricsAboveThreshold >= 3 || currentProgress >= goal)
         {
             //EndGame(true); // Player wins
             return (true, true); // Game over, player wins
@@ -464,6 +456,7 @@ public class CardManager : MonoBehaviour
         if (lives == 2 && !playerWon)
         {
             // prompt = "Oh, sorry, our system is not calculating the metrics in the right way. You stil have time to go. I will reset the key indicators and you can continue.";
+            
             gameOverCard = gameOverCards[0];
             // Debug.Log("You lost a life! Lives remaining: " + lives);
             return;
