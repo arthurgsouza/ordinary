@@ -107,14 +107,10 @@ public class CardManager : MonoBehaviour
         {
             // Initialize metrics with random values
             ShuffleCards();
-            
-            // DisplayCard(cards[currentIndex]);
-            //DisplayCard(meta_cards[metaIndex]);
-            //UpdateIcons();
+
             lifeMonitorCount.text = lives.ToString();
             progressMonitorCount.text = "00";
-            prosperityTag.text = "...";
-        
+            prosperityTag.text = "";
 
             // Hide the game over text and restart button initially
             if (gameOverText != null) gameOverText.gameObject.SetActive(false);
@@ -202,18 +198,6 @@ public class CardManager : MonoBehaviour
             cards.Insert(randomIndex3, threeArcCards[cardIndice+2]); // Insert the third card
         }
     }
-
-    // private void InsertProsperityCard()
-    // {
-    //     if (cards.Count >= prosperityIndex-1)
-    //     {
-    //         cards.Insert(prosperityIndex, activateProsperity); 
-    //     }
-    //     else
-    //     {
-    //         cards.Add(activateProsperity); // If too short, just add it at the end
-    //     }
-    // }
 
     public void OnSwipeRight()
     {
@@ -396,11 +380,20 @@ public class CardManager : MonoBehaviour
     private void UpdateIcons()
     {
         float baseDelay = 0.1f;
+
+        int[] indices = new int[currentMetrics.Length];
+        for (int i = 0; i < indices.Length; i++)
+            indices[i] = i;
+
+        indices = FisherYatesShuffle(indices); // Shuffle the indices for random update order
+
+
+
         for (int i = 0; i < metricIcons.Length; i++)
         {
             if (i < currentMetrics.Length && metricIcons[i] != null)
             {
-                metricIcons[i].SetMetricValue(currentMetrics[i], baseDelay * i); // Update the icon's fill amount
+                metricIcons[i].SetMetricValue(currentMetrics[i], baseDelay * indices[i]); // Update the icon's fill amount
             }
         }
         Debug.Log("Icon updated: " + string.Join(", ", currentMetrics));
