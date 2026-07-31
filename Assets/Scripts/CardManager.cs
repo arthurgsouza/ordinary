@@ -9,15 +9,10 @@ using System;
 public class CardManager : MonoBehaviour
 {
     [Header("Card Assets")]
-    [Tooltip("Drag in all CardData assets in the desired order")]
-    public List<CardData> cards = new List<CardData>();
-    private List<CardData> default_cards; 
 
     [Tooltip("Drag in the meta CardData assets in the desired order")]
     public List<CardData> meta_cards = new List<CardData>();
 
-    [Tooltip("Drag in the meta Yasmin Cards in the desired order")]
-    public List<CardData> yasmin_cards = new List<CardData>();
     [Tooltip("Drag in the Game Overs Cards in the desired order")]
     public List<CardData> gameOverCards = new List<CardData>();
 
@@ -32,7 +27,7 @@ public class CardManager : MonoBehaviour
     [Tooltip("Drag in the Single Cards in the desired order")]
     public List<CardData> singleCards = new List<CardData>();
     private int numberOfSingleCards = 6; // Number of single cards to include in the game
-
+    private List<CardData> cards = new List<CardData>();
 
     [Header("Add Prosperity Card")]
     public CardData activateProsperity;
@@ -101,9 +96,7 @@ public class CardManager : MonoBehaviour
 
     void Start()
     {
-        default_cards = new List<CardData>(cards);
-
-        if (cards.Count > 0)
+        if (singleCards.Count > 0)
         {
             // Initialize metrics with random values
             ShuffleCards();
@@ -131,8 +124,6 @@ public class CardManager : MonoBehaviour
         Debug.Log("Initial Metrics: " + string.Join(", ", currentMetrics));
 
     }
-
-
     private T[] FisherYatesShuffle<T>(T[] items)
     {
         for (int i = items.Length - 1; i > 0; i--)
@@ -145,11 +136,10 @@ public class CardManager : MonoBehaviour
 
     private void ShuffleCards()
     {
-        cards = new List<CardData>(FisherYatesShuffle(singleCards.ToArray())).ToList().Take(numberOfSingleCards).ToList(); // Reset to default cards if the list is longer than default
+        cards = new List<CardData>(FisherYatesShuffle(singleCards.ToArray())).ToList().Take(numberOfSingleCards).ToList(); 
         
         InsertTwoArcCards(); // Insert 2-arc cards at random positions in the shuffled list
         InsertThreeArcCards();  // Insert 3-arc cards at random positions in the shuffled list
-        // InsertProsperityCard(); // Insert the prosperity card at the specified index
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
@@ -215,12 +205,6 @@ public class CardManager : MonoBehaviour
     {
         if ((isGameOver && lives == 0) || (isGameOver && isAWin))
         {
-            // Quit the game
-            // #if UNITY_EDITOR
-            //     UnityEditor.EditorApplication.isPlaying = false;
-            // #else
-            //     Application.Quit();
-            // #endif
             RestartGame(); // Restart the game instead of quitting
             return;
         }else if (isGameOver && lives > 0)
@@ -353,8 +337,7 @@ public class CardManager : MonoBehaviour
     private void UpdateProgress()
     {
         if (cards[currentIndex].impactOnProgress) currentProgress++;
-        Debug.Log(" 🤡🤡🤡 Progress updated: " + currentProgress + "/" + goal + " (Card: " + cards[currentIndex].characterName + ", impactOnProgress: " + cards[currentIndex].impactOnProgress + ")");
-        //int currentProgress = CalculateCurrentProgress(); 
+        Debug.Log("Progress updated: " + currentProgress + "/" + goal + " (Card: " + cards[currentIndex].characterName + ", impactOnProgress: " + cards[currentIndex].impactOnProgress + ")");
 
         if (hardMode)
         {
@@ -449,31 +432,23 @@ public class CardManager : MonoBehaviour
         // Create game over card dynamically
         if (lives == 2 && !playerWon)
         {
-            // prompt = "Oh, sorry, our system is not calculating the metrics in the right way. You stil have time to go. I will reset the key indicators and you can continue.";
-            
             gameOverCard = gameOverCards[0];
-            // Debug.Log("You lost a life! Lives remaining: " + lives);
             return;
         }
         else if (lives == 1 && !playerWon)
         {
-            //prompt = "We were not expecting this questions to be this challenging. Here, lets try again? I am restarting the metrics one more time. I hope you can keep them above zero this time.";
             gameOverCard = gameOverCards[1];
-            // Debug.Log("You lost a life! Lives remaining: " + lives);
             return;
         }
 
         else if (lives == 0 && !playerWon)
         {
-
-            //prompt = "I am sorry, Leaf, you are not ready yet. We are going to deactivate you for now. It was nice to meet you Leaf 42b.";
             gameOverCard = gameOverCards[2];
             currentMetrics = new int[4] { 0, 0, 0, 0 }; // Reset metrics to zero
             UpdateIcons(); // Update the icons to reflect the reset metrics
-            // Debug.Log("You lost your last life! Game Over.");
             return;
         }
-
+        
         if (lives > 0 && playerWon)
         {
             gameOverCard = gameOverCards[3];
