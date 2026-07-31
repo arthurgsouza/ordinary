@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 034-django
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Django Manush
-  promptText: Young one, I just learned my pension is invested in mines where children
-    work underground. Pushing the fund to divest costs me my income. Keep my security,
-    or refuse to profit?
+  promptText: "Young one, I just learned my pension is invested in mines where children
+    work underground. Pushing the fund to divest costs me my income. \n\nKeep my
+    security, or refuse to profit?"
   leftAnswer: Divest. Children's safety outweighs any pension
   rightAnswer: Keep it. Your security matters too
   portrait: {fileID: 6973239116014469309, guid: 427303e2e0df6da88ae7501e9077ee12, type: 3}
-  leftEffects: 0f0000000a00000014000000ecffffff
-  rightEffects: f1fffffff6ffffffecffffff19000000
+  leftEffects: 140000000f00000023000000ddffffff
+  rightEffects: 19000000ecffffffe2ffffff28000000
+  impactOnProgress: 1

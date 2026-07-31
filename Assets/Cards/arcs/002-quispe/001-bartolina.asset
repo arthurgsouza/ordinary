@@ -15,10 +15,11 @@ MonoBehaviour:
   characterName: Bartolina Quispe
   promptText: "We live beside Bolivia\u2019s great lithium reserve. A mining company
     promises our village schools and clean-energy jobs. But their operation would
-    drain and poison the springs we drink from and irrigate with. Do I accept their
-    \u201Cgreen\u201D future if it costs us our water?"
+    drain and poison the springs we drink from and irrigate with. \n\nDo I accept
+    their \u201Cgreen\u201D future if it costs us our water?"
   leftAnswer: Yes, take the deal; schools and jobs will help your people now.
   rightAnswer: No, refuse the mine; water and health must come first.
   portrait: {fileID: 966909835746358733, guid: f70fdbee6465dfa5e905e500b3b0da92, type: 3}
   leftEffects: 0a000000e2ffffffe7ffffff23000000
   rightEffects: ecffffff0a0000000f000000ecffffff
+  impactOnProgress: 1

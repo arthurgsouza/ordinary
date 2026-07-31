@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 025-sonia
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "S\xF4nia Suru\xED"
-  promptText: Cousin Leaf, a British company offers millions for our reforested land
-    as carbon credits. Accepting means losing the right to decide how our forest
-    is used. Do I sell?
-  leftAnswer: Refuse. Control of the forest is the whole point
-  rightAnswer: Accept. The money can fund the clinics now
+  promptText: "Cousin, a British company offers millions for our reforested land
+    as carbon credits. Accepting means losing the right to decide the future of our
+    forest. \n\nDo I sell?"
+  leftAnswer: Refuse. The forest is family and is nor for trade
+  rightAnswer: Accept. Tthe funds can meet urgent needs now
   portrait: {fileID: 3047562591619490159, guid: fc4783f1788ccdc33a179a1bb835eee7, type: 3}
-  leftEffects: f6ffffff1900000023000000e2ffffff
-  rightEffects: 0f0000000a000000e2ffffff28000000
+  leftEffects: 140000001900000028000000d3ffffff
+  rightEffects: 19000000e2ffffffd3ffffff37000000
+  impactOnProgress: 1

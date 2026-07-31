@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 027-paula 3
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Paula dos Santos \u25CF \u25CF \u25CF "
-  promptText: Leaf, the contract is on my desk and my team is watching me. I sign,
-    or I walk?
+  promptText: "Leaf, the contract is on my desk and my team is watching me. \n\nI
+    sign, or I walk?"
   leftAnswer: Sign. Protect the people in front of you
   rightAnswer: Walk away. Your integrity is the lab's real value
   portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
-  leftEffects: 0f000000f6ffffffecffffff19000000
-  rightEffects: f1ffffff0a00000014000000e7ffffff
+  leftEffects: 14000000e7ffffffd8ffffff2d000000
+  rightEffects: 0a0000001900000028000000ceffffff
+  impactOnProgress: 1

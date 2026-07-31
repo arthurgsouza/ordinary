@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 005-thakur 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Thakur Mohamed \u25CF \u25CB \u25CB"
-  promptText: My friend, tourists are breaking pieces of our living reef to sell
-    as souvenirs. My brother guides those tourists; it is his only work. Do I push
-    for a ban?
-  leftAnswer: Yes, push the ban. A dead reef ends all jobs
-  rightAnswer: Not yet. Protect his income while seeking gentler rules
+  promptText: "My friend, tourists are breaking pieces of our living reef to sell
+    as souvenirs. My brother guides those tourists; it is his only work. \n\nDo I
+    push for a ban?"
+  leftAnswer: Not yet. Protect his income while seeking gentler rules
+  rightAnswer: 'Yes, push the ban. A dead reef ends all jobs '
   portrait: {fileID: 5565253141382398990, guid: 421845bb3a4db3b7bbf285563d785fd2, type: 3}
-  leftEffects: fbffffff0800000008000000f8ffffff
-  rightEffects: 05000000fbfffffffbffffff08000000
+  leftEffects: 0f000000ecfffffff1ffffff0f000000
+  rightEffects: f6ffffff0f00000014000000ecffffff
+  impactOnProgress: 0

@@ -995,6 +995,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 061a50e89744245c2bda3bb289c84359, type: 2}
   - {fileID: 11400000, guid: abdad2d532c5cf14c9e575813c36af00, type: 2}
   - {fileID: 11400000, guid: 45122d7af78278549848ae3e6705c3ff, type: 2}
+  - {fileID: 11400000, guid: 337e687cb4008245aa8e0de791b36717, type: 2}
   threeArcCards:
   - {fileID: 11400000, guid: c112a7fd7c44581dab3e2767b38fae5e, type: 2}
   - {fileID: 11400000, guid: 3d3846eb8148fc5fc9e104bd34799e36, type: 2}
@@ -1333,7 +1334,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1360,6 +1361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IconFiller
   iconImage: {fileID: 543905631}
   metricValue: 0
+  animationDuration: 0.5
 --- !u!1 &579256555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,7 +1425,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1450,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IconFiller
   iconImage: {fileID: 579256557}
   metricValue: 0
+  animationDuration: 0.5
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,7 +1538,11 @@ MonoBehaviour:
         m_SelectedSource:
           rid: -2
         m_Provider2DCache:
-          rid: -2
+          rid: 4076171799565959245
+    - rid: 4076171799565959245
+      type: {class: 'Provider2DCache`1[[UnityEngine.Rendering.Universal.Light2DProvider, Unity.RenderPipelines.Universal.2D.Runtime]]', ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data:
+        m_Cache: []
 --- !u!4 &619394802
 Transform:
   m_ObjectHideFlags: 0
@@ -1608,7 +1615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: /13
+  m_text: /09
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
@@ -1738,7 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 2100000, guid: 695b98ef3c48a41ffb350cd735dc30af, type: 2}
-  m_Color: {r: 0.4627451, g: 0.6313726, b: 0.47841427, a: 1}
+  m_Color: {r: 0.49411765, g: 0.7058824, b: 0.7294118, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2239,6 +2246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IconFiller
   iconImage: {fileID: 844097295}
   metricValue: 0
+  animationDuration: 0.5
 --- !u!114 &844097295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,7 +2272,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2652,6 +2660,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   swipeStartSound: {fileID: 8300000, guid: 2ba64d48a14946ccfbf5703537759bad, type: 3}
   decisionSound: {fileID: 8300000, guid: c673f1df198a3351fa3f4ac778136bc6, type: 3}
+  idleHintDelay: 7
+  hintSwipeDistance: 200
+  hintSwipeDuration: 0.6
 --- !u!224 &1178041915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2968,7 +2979,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2995,6 +3006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IconFiller
   iconImage: {fileID: 1184050560}
   metricValue: 0
+  animationDuration: 0.5
 --- !u!1 &1256314757
 GameObject:
   m_ObjectHideFlags: 0
@@ -3040,7 +3052,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3244,6 +3256,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   swipeStartSound: {fileID: 8300000, guid: f792d0773cd56046891c1f492fb48b09, type: 3}
   decisionSound: {fileID: 8300000, guid: 1a3a218184497f33cbe2ced1123da98c, type: 3}
+  idleHintDelay: 7
+  hintSwipeDistance: 200
+  hintSwipeDuration: 0.6
 --- !u!114 &1281523267
 MonoBehaviour:
   m_ObjectHideFlags: 0

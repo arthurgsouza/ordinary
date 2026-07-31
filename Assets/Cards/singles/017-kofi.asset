@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 017-kofi
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Kofi Mensah
-  promptText: Brother, gold miners poisoned our river and offered me money to stay
-    silent about it. My children are hungry today. Take it, or expose them?
+  promptText: "Brother, gold miners poisoned our river and offered me money to stay
+    silent about it. My children are hungry today. \n\nTake it, or expose them?"
   leftAnswer: Take it. Feed the children, fight when you're stronger
   rightAnswer: Expose them. The truth protects the whole village
   portrait: {fileID: 4543853160360643584, guid: df7c90ab3083fb10fba1144352d41c28, type: 3}
-  leftEffects: 14000000f6fffffff1ffffff14000000
-  rightEffects: f6ffffff0f00000014000000e7ffffff
+  leftEffects: 19000000ecffffffddffffff28000000
+  rightEffects: 0f0000001400000023000000d8ffffff
+  impactOnProgress: 1

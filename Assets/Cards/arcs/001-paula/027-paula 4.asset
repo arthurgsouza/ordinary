@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 027-paula 4
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: 'Paula dos Santos '
+  promptText: Paula's lab survived. Its findings did not.
+  leftAnswer: Good luck, Paula.
+  rightAnswer: Science will speak again
+  portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
+  leftEffects: 00000000000000000000000000000000
+  rightEffects: 00000000000000000000000000000000
+  impactOnProgress: 0

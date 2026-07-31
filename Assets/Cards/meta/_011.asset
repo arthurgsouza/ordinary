@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: _011
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Dr. Alice Krenak
-  promptText: 'The results are before the assembly now. They are voting on full deployment:
-    every nation, every citizen, every choice. The world is about to meet you, Leaf.'
-  leftAnswer: Hello, World!
-  rightAnswer: I will be ready
-  portrait: {fileID: 8976944349794189140, guid: 44c5c765ec4386fb78a7ee1ad7799a7d, type: 3}
+  promptText: "A single leaf changed the wind. \n\nORDINARY LEAF will return. You
+    will be Leaf again."
+  leftAnswer: Play again
+  rightAnswer: I'll be waiting
+  portrait: {fileID: -6198793427302326198, guid: 962fb2a06c6c932dd82d3b1f4f015c3b, type: 3}
   leftEffects: 00000000000000000000000000000000
   rightEffects: 00000000000000000000000000000000
+  impactOnProgress: 0

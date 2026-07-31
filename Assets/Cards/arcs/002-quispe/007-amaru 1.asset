@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 007-amaru 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Amaru Quispe \u25CF \u25CF \u25CB"
-  promptText: Sister Leaf, Bartolina is my sister. Now Salar Global wants the sacred
-    mountain too, where our ancestors rest. The village is splitting in two.
-  leftAnswer: Consider the trade. The living need schools too
-  rightAnswer: Refuse. Some places should never be for sale
+  promptText: "Sister Leaf, I am Bartolina's brother. Now Earthbending Global  wants
+    the sacred mountain too, where our ancestors rest. The village is splitting in
+    two. \n\nWhat should we do?"
+  leftAnswer: Refuse. Some places should never be for sale
+  rightAnswer: 'Consider the trade. The living need schools too '
   portrait: {fileID: -7926126768191770822, guid: a8cc4d528454431f18d463754e21069b, type: 3}
-  leftEffects: 05000000fbfffffff8ffffff08000000
-  rightEffects: fbffffff050000000a000000fbffffff
+  leftEffects: 140000000f0000001e000000e7ffffff
+  rightEffects: f1ffffffecffffffe7ffffff1e000000
+  impactOnProgress: 0

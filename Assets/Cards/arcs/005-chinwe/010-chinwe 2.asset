@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 010-chinwe 2
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Chinwe Okoro \u25CF \u25CF"
-  promptText: Their man came today, dear. Double the school funding if I sign a silence
-    agreement. Forever silent, fully funded. Do I sign?
+  promptText: "Leaf, their man came today. They will double the school funding if
+    I sign a silence agreement. Forever silent, fully funded. \n\nDo I sign?"
   leftAnswer: Sign. Keep the school and fight another way later
   rightAnswer: Refuse. They pay for silence because reporting works
   portrait: {fileID: 4734101735464426760, guid: 25a245107fb28c810a73a8adf9075dbf, type: 3}
-  leftEffects: 0f000000f1ffffffecffffff1e000000
-  rightEffects: f6ffffff1400000019000000ecffffff
+  leftEffects: 14000000e2ffffffd8ffffff32000000
+  rightEffects: 190000002300000028000000c9ffffff
+  impactOnProgress: 1

@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: 006-wangari 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Mwanajuma Hassan \u25CF \u25CF \u25CB"
-  promptText: Child, I live in Mohamed's village. Industrial trawlers came this week,
-    dragging chains across our reef. Suddenly the souvenirs look like a small problem.
+  promptText: 'Child, I live in Mohamed''s village. Industrial trawlers came this
+    week, dragging chains across our reef. Suddenly the souvenirs look like a small
+    problem.
+
+
+    Do I lead my community to fight for the reef?'
   leftAnswer: Rally the village. Together you are harder to ignore.
-  rightAnswer: Hold back. Armed crews are not worth lives
+  rightAnswer: Hold back. keep the community safe and seek another way.
   portrait: {fileID: -6240534556767299599, guid: ea1c49667730c8e1b9cef04c5f644358, type: 3}
-  leftEffects: fbffffff080000000500000000000000
-  rightEffects: 05000000f8fffffffbffffff00000000
+  leftEffects: f1ffffff1400000019000000e2ffffff
+  rightEffects: ecffffffe2ffffffe7ffffff23000000
+  impactOnProgress: 0

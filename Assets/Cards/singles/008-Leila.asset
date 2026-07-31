@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 008-Leila
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Leila Khouri
-  promptText: Sister, the drought killed our sheep. The old fog nets could pull water
-    from the mist, but they are outlawed here. Setting them risks arrest. Do I risk
-    it?
+  promptText: "Sister, the drought killed our sheep. The old fog nets could pull
+    water from the mist, but they are outlawed here. Setting them risks arrest. \n\nDo
+    I risk it?"
   leftAnswer: Wait. Stay free and look for safer aid
   rightAnswer: Set the nets. Your children must eat today
   portrait: {fileID: -7032993867501538004, guid: 9361f858fdf681134b19ac9496e900eb, type: 3}
-  leftEffects: f1fffffff6fffffff1ffffff19000000
-  rightEffects: 0f0000000a0000000f000000ecffffff
+  leftEffects: e7ffffffecffffffddffffff28000000
+  rightEffects: 190000001e0000001e000000d8ffffff
+  impactOnProgress: 1

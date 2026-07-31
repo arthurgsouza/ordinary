@@ -20,3 +20,4 @@ MonoBehaviour:
   portrait: {fileID: -4320295261928297051, guid: f1adc36890c831fd58e7109894c54ef3, type: 3}
   leftEffects: 00000000000000000000000000000000
   rightEffects: 00000000000000000000000000000000
+  impactOnProgress: 0

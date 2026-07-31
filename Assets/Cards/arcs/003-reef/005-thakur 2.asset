@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 005-thakur 2
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Thakur Mohamed \u25CF \u25CF \u25CF"
-  promptText: My friend, the village meets tonight. We confront the trawlers at sea,
-    or we petition the court and wait. Which way?
+  promptText: "My friend, the village meets tonight. We confront the trawlers at
+    sea, or we petition the court and wait. \n\nWhich way should we go?"
   leftAnswer: Confront them. Waiting costs the reef too much
   rightAnswer: The court. Slow justice keeps everyone alive
   portrait: {fileID: 5565253141382398990, guid: 421845bb3a4db3b7bbf285563d785fd2, type: 3}
-  leftEffects: f6ffffff1400000019000000ecffffff
-  rightEffects: 0a000000ecffffffe7ffffff23000000
+  leftEffects: ecffffff1e00000028000000ceffffff
+  rightEffects: e7ffffffe2ffffffd3ffffff32000000
+  impactOnProgress: 1

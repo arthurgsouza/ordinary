@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 018-adam 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Adam Darwish \u25CF \u25CB"
-  promptText: Friend, settlers burned three of our ancient olive trees last night.
-    If I film them, they will come for my family. Do I record it?
+  promptText: "Friend, settlers burned three of our ancient olive trees last night.
+    If I film them, they will come for my family. \n\nDo I record it?"
   leftAnswer: Film it. Evidence forces the world to look
   rightAnswer: Stay unseen. Your family's safety comes first
   portrait: {fileID: -8178343630106342469, guid: 5e17aa4da8e78824ab1ec702d788824e, type: 3}
-  leftEffects: f8ffffff000000000800000000000000
-  rightEffects: 0800000000000000f8ffffff00000000
+  leftEffects: f1ffffff1400000019000000ecffffff
+  rightEffects: 0a000000f1ffffffecfffffff1ffffff
+  impactOnProgress: 0

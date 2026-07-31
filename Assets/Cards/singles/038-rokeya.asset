@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 038-rokeya
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Rokeya Chowdhury
-  promptText: Little sister, my brand is sold as sustainable, but it runs on low
-    factory wages. Raise pay and the factory may close; those mothers lose everything.
-    Keep wages low, or raise them?
+  promptText: "Aunty, my brand is sold as sustainable, but it runs on low factory
+    wages. Raise pay and the factory may close; those mothers lose everything. \n\nKeep
+    wages low, or raise them?"
   leftAnswer: Keep them low for now. Protect the jobs first
   rightAnswer: Raise them. Fair pay is part of sustainable
   portrait: {fileID: -8359629606829966184, guid: 978d956a04c6562dfa771993f3b70eac, type: 3}
   leftEffects: f1ffffff140000001900000023000000
-  rightEffects: 0a00000014000000ecffffff14000000
+  rightEffects: 0a00000014000000ecffffff28000000
+  impactOnProgress: 1

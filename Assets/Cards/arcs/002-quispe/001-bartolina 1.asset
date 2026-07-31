@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 001-bartolina 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Bartolina Quispe \u25CF \u25CB \u25CB"
-  promptText: Brother Leaf, Earthbending Global wants the lithium under our salt
+  promptText: "Brother Leaf, Earthbending Global wants the lithium under our salt
     flats. They promise schools and jobs, but their pumps would drain our drinking
-    springs. Do we open the door?
+    springs. \n\nDo we open the door?"
   leftAnswer: Yes, open talks. Schools and jobs help now.
   rightAnswer: No, close the door. The springs come first
   portrait: {fileID: 966909835746358733, guid: f70fdbee6465dfa5e905e500b3b0da92, type: 3}
-  leftEffects: 05000000fbffffff0000000008000000
-  rightEffects: 000000000800000005000000f8ffffff
+  leftEffects: 0f000000f6fffffff1ffffff14000000
+  rightEffects: 0a0000000f0000000a000000ecffffff
+  impactOnProgress: 0

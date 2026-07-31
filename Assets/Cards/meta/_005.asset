@@ -18,6 +18,7 @@ MonoBehaviour:
     are always other choices to make."
   leftAnswer: Analyzing failure...
   rightAnswer: Let's restore
-  portrait: {fileID: 8976944349794189140, guid: 44c5c765ec4386fb78a7ee1ad7799a7d, type: 3}
+  portrait: {fileID: -6198793427302326198, guid: 962fb2a06c6c932dd82d3b1f4f015c3b, type: 3}
   leftEffects: 9cffffff9cffffff9cffffff9cffffff
   rightEffects: 9cffffff9cffffff9cffffff9cffffff
+  impactOnProgress: 0

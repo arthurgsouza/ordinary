@@ -14,9 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Paula dos Santos \u25CF \u25CF \u25CB"
   promptText: 'Their condition arrived: we never publish anything critical of fossil
-    fuels. My team has families, Leaf. This lab is their life''s work.'
-  leftAnswer: Accept it. A working lab still does some good
-  rightAnswer: Refuse. Censored science helps no one
+    fuels. My team has families, Leaf. This lab is their life''s work.
+
+
+    What
+    should I do?'
+  leftAnswer: Refuse. Censored science helps no one
+  rightAnswer: 'Accept it. A working lab still does some good '
   portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
-  leftEffects: 0500000000000000f6ffffff08000000
-  rightEffects: fbffffff05000000f6ffffff08000000
+  leftEffects: 0a0000000f00000019000000e2ffffff
+  rightEffects: 0f000000ecffffffe2ffffff23000000
+  impactOnProgress: 0

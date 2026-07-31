@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 012-jean
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: Jean Toussaint
-  promptText: The IMF will erase our debt if we sell our public wells to foreign
-    companies. Sign, and my children pay for every glass of water. Do I sign?
+  promptText: "The IMF will erase our debt if we sell our public wells to foreign
+    companies. Sign, and my children pay for every glass of water. \n\nDo I sign?"
   leftAnswer: Refuse. Debt passes; sold wells don't come back
   rightAnswer: Sign. Breathing room buys time to rebuild
   portrait: {fileID: -6390406276774682509, guid: f16bffc3c2eedaa0884fec014f3d9b23, type: 3}
-  leftEffects: 0f000000050000000a000000ecffffff
-  rightEffects: f6ffffff00000000f6ffffff19000000
+  leftEffects: 140000000f00000022000000d8ffffff
+  rightEffects: e7ffffffecffffffe7ffffff2d000000
+  impactOnProgress: 1

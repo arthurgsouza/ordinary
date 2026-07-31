@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 001-bartolina 2
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Bartolina Quispe \u25CF \u25CF \u25CF"
-  promptText: Brother, the village votes tomorrow and we are split evenly. Your word
-    will decide it. The mine, or the water?
+  promptText: "Brother, the village votes tomorrow and we are split evenly. Your
+    word will decide it. \n\nThe mine, or the water?"
   leftAnswer: The mine. Build the school and watch them closely
   rightAnswer: The water. No school is worth poisoned springs
   portrait: {fileID: 966909835746358733, guid: f70fdbee6465dfa5e905e500b3b0da92, type: 3}
-  leftEffects: 14000000f1ffffffe7ffffff1e000000
-  rightEffects: f6ffffff1400000019000000e7ffffff
+  leftEffects: 1e000000e2ffffffddffffff2d000000
+  rightEffects: 140000002300000028000000c9ffffff
+  impactOnProgress: 1

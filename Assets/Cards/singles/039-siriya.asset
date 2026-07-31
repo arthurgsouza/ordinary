@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 039-siriya
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: ' Siriya Bandara'
-  promptText: Friend, protest is now a crime here. I lead the demonstrations for
-    our sacred groves, but if I am jailed my mother loses her care. Do I keep organising?
+  promptText: "Friend, protest is now a crime here. I lead the demonstrations for
+    our sacred groves, but if I am jailed my mother loses her care. \n\nDo I keep
+    organising?"
   leftAnswer: Keep organising. The groves have no other voice
   rightAnswer: Step back. Your mother needs you free
   portrait: {fileID: 6350303114485959156, guid: c479cdad6348c719c9664f252105889c, type: 3}
-  leftEffects: f1ffffff14000000190000000a000000
-  rightEffects: 0f000000ecffffffddffffff14000000
+  leftEffects: f1ffffff1400000023000000e7ffffff
+  rightEffects: 14000000e7ffffffddffffff28000000
+  impactOnProgress: 1

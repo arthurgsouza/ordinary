@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f64867891d25843990674aec56434f4, type: 3}
+  m_Name: 018-adam 3
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  characterName: "Adam Darwish \u25CF \u25CF"
+  promptText: Adam's name travelled far, and so did the photographs of the stumps.
+    He sleeps in a different house each week.
+  leftAnswer: Stay safe, friend
+  rightAnswer: The olive trees remember
+  portrait: {fileID: -8178343630106342469, guid: 5e17aa4da8e78824ab1ec702d788824e, type: 3}
+  leftEffects: e7ffffff1e00000023000000d8ffffff
+  rightEffects: 190000001400000019000000ddffffff
+  impactOnProgress: 1

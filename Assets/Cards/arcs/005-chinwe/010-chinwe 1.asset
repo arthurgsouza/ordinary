@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: 010-chinwe 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Chinwe Okoro \u25CF \u25CB"
-  promptText: Dear Leaf, Dead Dinossaus's pipeline leaked into our river again, the
-    third spill this year. Their money keeps our school running. Do I report it?
+  promptText: "Dear, Dead Dinossaus's pipeline leaked into our river again, the third
+    oil spill this year. Their money keeps our school running. \n\nShould I report
+    it?"
   leftAnswer: Report it. A clean river outlasts any grant
   rightAnswer: Stay quiet for now. The school needs the money
   portrait: {fileID: 4734101735464426760, guid: 25a245107fb28c810a73a8adf9075dbf, type: 3}
-  leftEffects: fbffffff0800000005000000f8ffffff
-  rightEffects: 05000000f8fffffffbffffff08000000
+  leftEffects: ecffffff1400000019000000e7ffffff
+  rightEffects: f1ffffffecffffffe7ffffff1e000000
+  impactOnProgress: 0

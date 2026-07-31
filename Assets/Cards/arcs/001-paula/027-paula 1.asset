@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 027-paula 1
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   characterName: "Paula dos Santos \u25CF \u25CB \u25CB"
-  promptText: Leaf, our climate lab just lost its public funding. An oil company,
-    Meridian Petro, is offering to keep us alive. Do we listen?
+  promptText: "Leaf, our climate lab just lost its public funding. An oil company,
+    Dead Dinossaurs, is offering to keep us alive. \n\nDo we listen?"
   leftAnswer: Yes, hear their terms. Listening costs nothing yet
   rightAnswer: No. Look for cleaner money first, even if slower
   portrait: {fileID: 4572252083551314941, guid: 1f704d90eb3ed05ca957ba58e8e353bc, type: 3}
-  leftEffects: 0000000000000000fbffffff08000000
-  rightEffects: 000000000500000005000000f8ffffff
+  leftEffects: fbfffffff6fffffff1ffffff0f000000
+  rightEffects: 050000000a0000000f000000ecffffff
+  impactOnProgress: 0
