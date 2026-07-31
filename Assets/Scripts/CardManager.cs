@@ -34,8 +34,6 @@ public class CardManager : MonoBehaviour
     private int numberOfSingleCards = 6; // Number of single cards to include in the game
 
 
-
-
     [Header("Add Prosperity Card")]
     public CardData activateProsperity;
 
@@ -65,7 +63,7 @@ public class CardManager : MonoBehaviour
     private bool isAWin = false; // Flag to track if the game has ended in a win
 
     // Current metric values (0-100 for each metric)
-    private int[] currentMetrics = new int[4] { 1, 1, 1, 50 }; // Initialize with default values
+    private int[] currentMetrics = new int[4] { 1, 1, 1, 1 }; // Initialize with default values
     public int minMetricStartValue = 30;
     public int maxMetricStartValue = 50;
     [Tooltip("Threshold for winning the game (3 metrics above this value)")]
@@ -155,7 +153,7 @@ public class CardManager : MonoBehaviour
         
         InsertTwoArcCards(); // Insert 2-arc cards at random positions in the shuffled list
         InsertThreeArcCards();  // Insert 3-arc cards at random positions in the shuffled list
-        InsertProsperityCard(); // Insert the prosperity card at the specified index
+        // InsertProsperityCard(); // Insert the prosperity card at the specified index
 
         cards.InsertRange(0, meta_cards); // Insert meta cards at the beginning
 
@@ -205,17 +203,17 @@ public class CardManager : MonoBehaviour
         }
     }
 
-    private void InsertProsperityCard()
-    {
-        if (cards.Count >= prosperityIndex-1)
-        {
-            cards.Insert(prosperityIndex, activateProsperity); 
-        }
-        else
-        {
-            cards.Add(activateProsperity); // If too short, just add it at the end
-        }
-    }
+    // private void InsertProsperityCard()
+    // {
+    //     if (cards.Count >= prosperityIndex-1)
+    //     {
+    //         cards.Insert(prosperityIndex, activateProsperity); 
+    //     }
+    //     else
+    //     {
+    //         cards.Add(activateProsperity); // If too short, just add it at the end
+    //     }
+    // }
 
     public void OnSwipeRight()
     {
@@ -249,13 +247,21 @@ public class CardManager : MonoBehaviour
         }
 
         ApplyEffects(cardEffects);
+
+        if (currentIndex >= (prosperityIndex + meta_cards.Count) && !metricIcons.Contains(prosperityIcon)) // Adjust for meta cards
+        {
+            cards.Insert(currentIndex+1, activateProsperity); // Insert the prosperity card at the adjusted index
+            AddProsperityIcon(); // Add the prosperity icon to the metricIcons array
+        }
+
+
         (isGameOver, isAWin) = CheckGameEndConditions();
+
         if (isGameOver)
         {
             EndGame(isAWin);
             return;
-        }
-        else
+        }else
         {
             AdvanceToNextCard();// Continue to next card
         }
@@ -272,33 +278,47 @@ public class CardManager : MonoBehaviour
 
     public CardData GetCurrentCard()
     {
-        Debug.Log("GetCurrentCard() called - isGameOver: " + isGameOver + ", currentIndex: " + currentIndex);
+        Debug.Log(" 🎃 GetCurrentCard() called - isGameOver: " + isGameOver + ", currentIndex: " + currentIndex);
         if (isGameOver)
         {
             return gameOverCard;
-        }
-        else if (currentIndex >= 0 && currentIndex < cards.Count)
+
+        }else if (currentIndex >= 0 && currentIndex < cards.Count)
         {
             return cards[currentIndex];
         }
         return null; // Return null if no valid card is available
     }
 
+    private void AddProsperityIcon()
+    {
+        if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
+        {
+            var newMetricIcons = new IconFiller[metricIcons.Length + 1];
+            metricIcons.CopyTo(newMetricIcons, 0);
+            newMetricIcons[^1] = prosperityIcon;
+            metricIcons = newMetricIcons; // Assign the new array back to metricIcons
+            prosperityTag.text = "Prosperity";
+        }
+        
+        currentMetrics[^1] = 60; // Set the prosperity metric value
+    }
+
     private void ApplyEffects(int[] cardEffects)
     {
         int[] effects = (int[])cardEffects.Clone(); // Work on a copy so the source CardData asset is never mutated
-        if (currentProgress == prosperityIndex-1)
-        {
-            if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
-            {
-                var newMetricIcons = new IconFiller[metricIcons.Length + 1];
-                metricIcons.CopyTo(newMetricIcons, 0);
-                newMetricIcons[^1] = prosperityIcon;
-                metricIcons = newMetricIcons; // Assign the new array back to metricIcons
-                prosperityTag.text = "Prosperity";
-            }
-            currentMetrics[^1] = 60; // Set the prosperity metric value
-        }
+        // if (currentProgress == prosperityIndex-1)
+        // {
+        //     if (!metricIcons.Contains(prosperityIcon)) // Ensure the prosperity icon is not already added
+        //     {
+        //         var newMetricIcons = new IconFiller[metricIcons.Length + 1];
+        //         metricIcons.CopyTo(newMetricIcons, 0);
+        //         newMetricIcons[^1] = prosperityIcon;
+        //         metricIcons = newMetricIcons; // Assign the new array back to metricIcons
+        //         prosperityTag.text = "Prosperity";
+        //     }
+        //     currentMetrics[^1] = 60; // Set the prosperity metric value
+        // }
 
         // Hard mode - random effect inversion and escalating penalties, used for the lab experiment's Hard condition
         if (hardMode)
@@ -345,31 +365,18 @@ public class CardManager : MonoBehaviour
         }
         // End hard mode
 
-        for (int i = 0; i < currentMetrics.Length; i++)
+        //for (int i = 0; i < currentMetrics.Length; i++)
+        for (int i = 0; i < metricIcons.Length; i++) // Only apply effects to the metrics that have corresponding icons
         {
             currentMetrics[i] += effects[i]; // Apply the effect
             currentMetrics[i] = Mathf.Clamp(currentMetrics[i], 0, 100); // Clamp the value between 0 and 100
         }
+        Debug.Log("Card Name: " + cards[currentIndex].characterName + ", Effects applied: " + string.Join(", ", effects) + ", New Metrics: " + string.Join(", ", currentMetrics));
         Debug.Log("Metrics updated: " + string.Join(", ", effects) + " -> " + string.Join(", ", currentMetrics));
 
         UpdateIcons(); // Update the icons with the new metric values
         UpdateProgress();
     }
-
-    // private  int CalculateCurrentProgress()
-    // {
-    //     int progress = currentIndex - (meta_cards.Count-1); // Adjust for meta cards
-    //     Debug.Log("Current Progress (before adjustment): " + progress);
-    //     Debug.Log("Current Index: " + currentIndex);
-    //     Debug.Log("Meta Cards Count: " + meta_cards.Count);
-
-    //     if (currentIndex - (meta_cards.Count-1) >= prosperityIndex) progress -= 1; 
-   
-    //     if (progress < 0) progress = 0;
-
-    //     Debug.Log("Current Progress (after adjustment): " + progress);
-    //     return progress;
-    // }
 
     private void UpdateProgress()
     {
@@ -458,14 +465,14 @@ public class CardManager : MonoBehaviour
         {
             // prompt = "Oh, sorry, our system is not calculating the metrics in the right way. You stil have time to go. I will reset the key indicators and you can continue.";
             gameOverCard = gameOverCards[0];
-            Debug.Log("You lost a life! Lives remaining: " + lives);
+            // Debug.Log("You lost a life! Lives remaining: " + lives);
             return;
         }
         else if (lives == 1 && !playerWon)
         {
             //prompt = "We were not expecting this questions to be this challenging. Here, lets try again? I am restarting the metrics one more time. I hope you can keep them above zero this time.";
             gameOverCard = gameOverCards[1];
-            Debug.Log("You lost a life! Lives remaining: " + lives);
+            // Debug.Log("You lost a life! Lives remaining: " + lives);
             return;
         }
 
@@ -476,7 +483,7 @@ public class CardManager : MonoBehaviour
             gameOverCard = gameOverCards[2];
             currentMetrics = new int[4] { 0, 0, 0, 0 }; // Reset metrics to zero
             UpdateIcons(); // Update the icons to reflect the reset metrics
-            Debug.Log("You lost your last life! Game Over.");
+            // Debug.Log("You lost your last life! Game Over.");
             return;
         }
 
@@ -489,6 +496,16 @@ public class CardManager : MonoBehaviour
             return;
         }
 
+    }
+
+    public void QuitGame()
+    {
+        // Quit the game
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     public void ResumeGame()
