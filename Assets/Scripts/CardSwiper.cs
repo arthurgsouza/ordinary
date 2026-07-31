@@ -44,14 +44,12 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
     [SerializeField] private AudioClip decisionSound;
 
     [Header("Idle Swipe Hint")]
-    [Tooltip("Seconds of no player input before each demo swipe plays")]
-    [SerializeField] private float idleHintDelay = 10f;
-    [Tooltip("How many times to repeat the demo (right+left counts as one repeat) before giving up")]
-    [SerializeField] private int hintRepeatCount = 3;
+    [Tooltip("Seconds of no player input before the demo swipe plays")]
+    [SerializeField] private float idleHintDelay = 9f;
     [Tooltip("How far the card nudges out during the demo, in the same units as swipeThreshold")]
     [SerializeField] private float hintSwipeDistance = 200f;
     [Tooltip("Duration of each leg (out or back) of the demo nudge")]
-    [SerializeField] private float hintSwipeDuration = 0.6f;
+    [SerializeField] private float hintSwipeDuration = 0.9f;
 
     private RectTransform rt;
     private Vector2 startPos;
@@ -60,8 +58,10 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
     // Tracks the coroutine so it can be cancelled, and whether the player has ever swiped/dragged
     // for real, since the hint should only ever play once, before the first real interaction.
+    // Static: the scene wires more than one CardSwiper to the same dragHintText/dragHintContainer,
+    // so a real swipe on one instance must stop every instance's idle hint, not just its own.
     private Coroutine idleHintCoroutine;
-    private bool hasInteracted = false;
+    private static bool hasInteracted = false;
 
     void Awake()
     {
@@ -84,7 +84,10 @@ public class CardSwiper : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
         UpdateCardUI();
 
         // Teach new players the swipe gesture if they don't touch the card in time.
-        idleHintCoroutine = StartCoroutine(IdleSwipeHintRoutine());
+        if (!hasInteracted)
+        {
+            idleHintCoroutine = StartCoroutine(IdleSwipeHintRoutine());
+        }
     }
 
     // show as soon as the user starts dragging
@@ -292,17 +295,15 @@ IEnumerator SmoothReset()
         dragHintText.gameObject.SetActive(false);
     }
 
-    // Waits for the idle delay, demonstrates a right swipe then a left swipe, and repeats
-    // up to hintRepeatCount times (stops early via CancelIdleHint once the player interacts).
+    // Waits for the configured idle delay, then demonstrates a right swipe followed by a left swipe.
     private IEnumerator IdleSwipeHintRoutine()
     {
-        for (int i = 0; i < hintRepeatCount; i++)
-        {
-            yield return new WaitForSeconds(idleHintDelay);
+        yield return new WaitForSeconds(idleHintDelay);
+        if (hasInteracted) { idleHintCoroutine = null; yield break; }
 
-            yield return GhostSwipe(hintSwipeDistance, isRight: true);
-            yield return GhostSwipe(-hintSwipeDistance, isRight: false);
-        }
+        yield return GhostSwipe(hintSwipeDistance, isRight: true);
+        if (hasInteracted) { idleHintCoroutine = null; yield break; }
+        yield return GhostSwipe(-hintSwipeDistance, isRight: false);
 
         idleHintCoroutine = null;
     }
@@ -311,6 +312,8 @@ IEnumerator SmoothReset()
     // This never calls cardManager.OnSwipeRight/Left, so it can't consume a card or apply any effects.
     private IEnumerator GhostSwipe(float offsetX, bool isRight)
     {
+        if (hasInteracted) yield break;
+
         CardData currentCard = cardManager?.GetCurrentCard();
         dragHintText.text = isRight ? (currentCard?.rightAnswer ?? "") : (currentCard?.leftAnswer ?? "");
         dragHintContainer.gameObject.SetActive(true);
@@ -331,13 +334,20 @@ IEnumerator SmoothReset()
     private IEnumerator TweenCard(Vector2 fromPos, Vector2 toPos, float fromRot, float toRot, float duration)
     {
         float elapsed = 0f;
-        while (elapsed < duration)
+        while (elapsed < duration && !hasInteracted)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
             rt.anchoredPosition = Vector2.Lerp(fromPos, toPos, t);
             rt.localEulerAngles = new Vector3(0, 0, Mathf.LerpAngle(fromRot, toRot, t));
             yield return null;
+        }
+
+        if (hasInteracted)
+        {
+            dragHintContainer.gameObject.SetActive(false);
+            dragHintText.gameObject.SetActive(false);
+            yield break;
         }
 
         rt.anchoredPosition = toPos;
