@@ -63,7 +63,7 @@ public class CardManager : MonoBehaviour
     private bool isAWin = false; // Flag to track if the game has ended in a win
 
     // Current metric values (0-100 for each metric)
-    private int[] currentMetrics = new int[4] { 1, 1, 1, 1 }; // Initialize with default values
+    private int[] currentMetrics = new int[4] { 1, 1, 1, 0 }; // Initialize with default values
     public int minMetricStartValue = 30;
     public int maxMetricStartValue = 50;
     [Tooltip("Threshold for winning the game (3 metrics above this value)")]
@@ -110,7 +110,7 @@ public class CardManager : MonoBehaviour
             
             // DisplayCard(cards[currentIndex]);
             //DisplayCard(meta_cards[metaIndex]);
-            UpdateIcons();
+            //UpdateIcons();
             lifeMonitorCount.text = lives.ToString();
             progressMonitorCount.text = "00";
             prosperityTag.text = "...";
@@ -395,11 +395,12 @@ public class CardManager : MonoBehaviour
 
     private void UpdateIcons()
     {
+        float baseDelay = 0.1f;
         for (int i = 0; i < metricIcons.Length; i++)
         {
             if (i < currentMetrics.Length && metricIcons[i] != null)
             {
-                metricIcons[i].SetMetricValue(currentMetrics[i]); // Update the icon's fill amount
+                metricIcons[i].SetMetricValue(currentMetrics[i], baseDelay * i); // Update the icon's fill amount
             }
         }
         Debug.Log("Icon updated: " + string.Join(", ", currentMetrics));
